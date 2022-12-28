@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import "./signup.css";
 
 const SignupForm = () => {
 	const [name, setName] = useState("");
@@ -21,7 +22,7 @@ const SignupForm = () => {
 					<label>Password</label>
 				</div>
 				<div className="item-btn float-end">
-					<button type="button" className="btn btn-outline-dark" onClick={handleLogin}>
+					<button type="button" className="btn btn-outline-dark">
 						Sign Up
 					</button>
 				</div>

@@ -12,9 +12,9 @@ const LoginNavbar = () => {
 				</div>
 				<div className="nav-items d-flex">
 					<div className="item-btn">
-						<Link to="/registration" className="link">
+						<Link to="/signup" className="link">
 							<button type="button" className="btn btn-outline-dark">
-								Register
+								Sign up
 							</button>
 						</Link>
 					</div>

@@ -6,9 +6,10 @@ import {
 } from "react-router-dom";
 
 import LandingPage from "./pages/landing/LandingPage.jsx";
-import LoginPage from './pages/landing/LoginPage.jsx';
+import LoginPage from './pages/auth/LoginPage.jsx';
 
 import "./reset.css";
+import SignupPage from './pages/auth/SignupPage.jsx';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/">
           <Route index element={<LandingPage />} />
           <Route path="login" element={<LoginPage />} />
+          <Route path="signup" element={<SignupPage />} />
           {/* <Route path="post">
           <Route path=":id" element={<Post />} />
           <Route path="test" element={<Post />} />
