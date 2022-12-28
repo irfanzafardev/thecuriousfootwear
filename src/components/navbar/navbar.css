@@ -1,0 +1,180 @@
+nav {
+	display: flex;
+	height: 100px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	background-color: #fff;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+nav .container-fluid {
+	width: 100%;
+	padding: 0 60px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+nav .nav-brand {
+	font-family: "ESAllianz-Regular", sans-serif;
+	width: 100%;
+	font-size: 22px;
+	font-weight: 600;
+	line-height: 39px;
+	letter-spacing: 0em;
+	text-align: start;
+}
+
+nav .nav-items {
+	display: none;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+nav .nav-items .item {
+	font-family: "ESAllianz-Regular", sans-serif;
+	padding: 5px 0;
+	text-align: center;
+	margin-inline: 30px;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+nav .nav-items .item:first-child {
+	font-family: "ESAllianz-Regular", sans-serif;
+	padding: 5px 0;
+	text-align: center;
+	margin-inline: 0px;
+	cursor: pointer;
+}
+
+nav .nav-items .item .search-box {
+	font-family: "ESAllianz-Regular", sans-serif;
+	padding: 5px 0;
+	text-align: start;
+	margin-inline: 7%;
+	font-size: 18px;
+	border: none;
+	border-bottom: 1px solid#000;
+}
+
+nav .nav-items .item .search-box:focus {
+	outline: none;
+}
+
+nav .nav-items .nav-dropdown {
+	position: absolute;
+	display: block;
+	margin-top: 10px;
+	z-index: 9999;
+	background-color: #fff;
+	box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+nav .nav-items .nav-dropdown li {
+	padding: 20px 20px;
+	border-bottom: 1px solid #000;
+}
+
+nav .nav-items .nav-dropdown li:last-child {
+	padding: 20px 16px;
+	border-bottom: none;
+}
+
+nav .nav-items .item-btn button {
+	font-family: "ESAllianz-Regular", sans-serif;
+	width: 150px;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0%;
+	text-align: center;
+	margin-inline: 12%;
+	font-size: 16px;
+}
+
+.link {
+	text-decoration: none;
+	color: #000;
+}
+
+.link:hover {
+	text-decoration: none;
+	color: #000;
+}
+
+/* Modal */
+
+.modal-dialog {
+	margin: 0;
+	width: 430px;
+	font-family: "ESAllianz-Regular", sans-serif;
+}
+
+@media (max-width: 450px) {
+	.modal-dialog {
+		width: 82%;
+	}
+}
+
+.modal-content {
+	border-radius: 0;
+	height: 100vh;
+	overflow-y: scroll;
+	background-color: #fff;
+}
+
+.modal-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 88%;
+	margin: 0 auto;
+	padding-bottom: 16px;
+}
+
+.modal .nav-brand {
+	width: 100%;
+	font-size: 22px;
+	font-weight: 600;
+	line-height: 39px;
+	letter-spacing: 0em;
+	text-align: start;
+}
+
+.modal-body {
+	width: 88%;
+	margin: 0 auto;
+	padding: 75px 0 0 0;
+	flex: unset;
+}
+
+.modal-body .modal-line {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 7px 0;
+	margin-bottom: 50px;
+	cursor: pointer;
+	transition: all 0.5s ease;
+	color: #000;
+	border-bottom: 1px solid #274d8a;
+}
+
+.modal-line .modal-item {
+	font-size: 16px;
+	font-weight: 500;
+	letter-spacing: 2.5px;
+}
+
+.modal-btn button {
+	width: 150px;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0%;
+}

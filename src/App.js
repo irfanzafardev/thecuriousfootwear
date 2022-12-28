@@ -1,8 +1,29 @@
 import React from 'react'
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+} from "react-router-dom";
+
+import LandingPage from "./pages/landing/LandingPage.jsx";
+
+import "./reset.css";
 
 const App = () => {
   return (
-    <div>Welcome</div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/">
+          <Route index element={<LandingPage />} />
+          {/* <Route path="login" element={<Login />} />
+        <Route path="post">
+          <Route path=":id" element={<Post />} />
+          <Route path="test" element={<Post />} />
+          <Route path="create" element={<PostForm />} />
+        </Route> */}
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
