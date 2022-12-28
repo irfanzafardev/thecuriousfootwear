@@ -1,0 +1,75 @@
+section.login-form {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	padding: 40px;
+	transform: translate(-50%, -50%);
+	background: #fff;
+	box-sizing: border-box;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	border-radius: 10px;
+}
+
+section.login-form h2 {
+	margin: 0 0 30px;
+	color: #000;
+	text-align: center;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 1.7rem;
+	line-height: 1.2777777777778;
+	letter-spacing: 0rem;
+}
+
+section.login-form .input-group {
+	position: relative;
+}
+
+section.login-form .input-group input {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 14px;
+	color: #000;
+	margin-bottom: 30px;
+	border: none;
+	border-bottom: 1px solid #000;
+	outline: none;
+	background: transparent;
+	font-family: "ESAllianz-Regular", sans-serif;
+	letter-spacing: 0rem;
+}
+
+section.login-form .input-group label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px 0;
+	font-size: 14px;
+	color: #000;
+	pointer-events: none;
+	font-family: "ESAllianz-Regular", sans-serif;
+	letter-spacing: 0rem;
+	transition: 0.3s;
+}
+
+section.login-form .input-group input:focus ~ label,
+section.login-form .input-group input:valid ~ label {
+	top: -20px;
+	left: 0;
+	color: #000;
+	font-size: 12px;
+}
+
+section.login-form button {
+	font-family: "ESAllianz-Regular", sans-serif;
+	width: 100px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0%;
+	text-align: center;
+	font-size: 16px;
+}

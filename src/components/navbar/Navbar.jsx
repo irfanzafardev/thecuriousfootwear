@@ -71,7 +71,7 @@ const Navbar = () => {
 						<div className="item-btn">
 							<Link to="/login" className="link">
 								<button type="button" className="btn btn-outline-dark">
-									Sign in
+									Log in
 								</button>
 							</Link>
 						</div>
