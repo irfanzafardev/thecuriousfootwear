@@ -7,7 +7,7 @@ const LoginNavbar = () => {
 			<div className="container-fluid">
 				<div className="nav-brand">
 					<Link to="/" className="link">
-						The Curious Footware
+						The Curious Footwear
 					</Link>
 				</div>
 				<div className="nav-items d-flex">

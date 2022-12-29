@@ -1,0 +1,73 @@
+section.explore-post {
+	width: 100%;
+	margin-top: 200px;
+	background-color: transparent;
+}
+
+section.explore-post .container-fluid {
+	width: 100%;
+	padding: 30px 60px 0 60px;
+	align-items: center;
+	justify-content: space-between;
+}
+
+section.explore-post .container-fluid .heading h1 {
+	display: inline;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 3.888888888888889rem;
+	line-height: 4.444444444444445rem;
+	letter-spacing: 0rem;
+}
+
+section.explore-post .container-fluid .heading .icon {
+	margin: -30px 0 0 0;
+	padding: 0;
+}
+
+/* section.explore-post .container-fluid .card {
+	border: none;
+} */
+
+section.explore-post .container-fluid .card .card-body {
+	margin: 0;
+	padding: 0;
+}
+
+section.explore-post .container-fluid .card img {
+	width: 100%;
+	border-radius: 0;
+	object-fit: cover;
+}
+
+section.explore-post .container-fluid .card p {
+	padding-top: 10px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 1.4rem;
+	line-height: 1.2777777777778;
+	letter-spacing: 0rem;
+}
+
+section.explore-post .container-fluid .explore {
+	margin-top: 60px;
+}
+
+section.explore-post .container-fluid .explore h2 {
+	padding-bottom: 20px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 2rem;
+	line-height: 1.2777777777778;
+	letter-spacing: 0rem;
+}
+
+section.explore-post .container-fluid .explore img {
+	width: 100%;
+	height: 500px;
+	border-radius: 0;
+	object-fit: cover;
+}

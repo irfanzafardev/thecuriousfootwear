@@ -23,7 +23,7 @@ const Navbar = () => {
 			<nav className="row align-items-center fixed-top">
 				<div className="container-fluid">
 					<Link to="/" className="link">
-						<div className="nav-brand">The Curious Footware</div>
+						<div className="nav-brand">The Curious Footwear</div>
 					</Link>
 					<div className="nav-items d-lg-flex">
 						<div className="item">
