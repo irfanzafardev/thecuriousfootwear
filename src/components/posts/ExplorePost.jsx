@@ -5,9 +5,9 @@ import "./explorepost.css";
 const ExplorePost = () => {
 	const [posts, setPosts] = useState([]);
 
-	const rootAPI = "https://thecuriousfootwear-server.vercel.app/api";
+	const rootAPI = "https://thecuriousfootwear-server.vercel.app/api/post";
 	const fetchPosts = async () => {
-		const { data } = await axios.get(rootAPI + "/posts");
+		const { data } = await axios.get(rootAPI + "/all");
 		setPosts(data);
 	};
 	useEffect(() => {

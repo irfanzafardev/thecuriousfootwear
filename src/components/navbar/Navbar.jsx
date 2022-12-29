@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import { GoThreeBars } from "react-icons/go";
+import { logout, reset } from "../../services/auth/authSlice";
 import "./navbar.css";
+import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
 	const [isActive, setActive] = useState(false);
@@ -17,7 +19,18 @@ const Navbar = () => {
 
 	// const [search, setSearch] = useState("");
 
-	// const rootAPI = "https://thecuriousfootwear-server.vercel.app/";
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
+	const { user } = useSelector((state) => state.auth);
+
+	console.log(user);
+
+	const handleLogout = () => {
+		dispatch(logout());
+		dispatch(reset());
+		window.location.reload();
+		navigate("/");
+	};
 	return (
 		<>
 			<nav className="row align-items-center fixed-top">
@@ -49,32 +62,35 @@ const Navbar = () => {
 								</li>
 							</ul>
 						</div>
-
-						<div className="item">
-							<Link to={`/profile`} className="link">
-								Profile
-							</Link>
-						</div>
-						<div className="item-btn ms-3">
-							<Link to="/post/create" className="link">
-								<button type="button" className="btn btn-outline-dark">
-									Create post
-								</button>
-							</Link>
-						</div>
-						<div className="item-btn ms-3">
-							<button type="button" className="btn btn-outline-dark">
-								Log out
-							</button>
-						</div>
-
-						<div className="item-btn">
-							<Link to="/login" className="link">
-								<button type="button" className="btn btn-outline-dark">
-									Log in
-								</button>
-							</Link>
-						</div>
+						{user ? (
+							<>
+								<div className="item">
+									<Link to={`/profile`} className="link">
+										Profile
+									</Link>
+								</div>
+								<div className="item-btn ms-3">
+									<Link to="/post/create" className="link">
+										<button type="button" className="btn btn-outline-dark">
+											Create post
+										</button>
+									</Link>
+								</div>
+								<div className="item-btn ms-3">
+									<button type="button" className="btn btn-outline-dark" onClick={handleLogout}>
+										Log out
+									</button>
+								</div>
+							</>
+						) : (
+							<div className="item-btn">
+								<Link to="/login" className="link">
+									<button type="button" className="btn btn-outline-dark">
+										Log in
+									</button>
+								</Link>
+							</div>
+						)}
 					</div>
 					<div className="mobile-toggler d-lg-none ms-5">
 						<div data-bs-toggle="modal" data-bs-target="#naveModal">
