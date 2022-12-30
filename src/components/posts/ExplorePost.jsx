@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./explorepost.css";
 
 const ExplorePost = () => {
@@ -38,13 +39,15 @@ const ExplorePost = () => {
 				<div className="row">
 					{posts.map((post) => (
 						<div className="col-12 col-lg-4" key={post.id}>
-							<div className="card">
-								<img src={post.image} className="card-img-top" alt="product" />
-								<div className="card-body">
-									<h5 className="card-title">{post.title}</h5>
-									<p className="card-text">{post.description}</p>
+							<Link to={`post/${post.id}`} style={{ textDecoration: "none" }}>
+								<div className="card">
+									<img src={post.image} className="card-img-top" alt="product" />
+									<div className="card-body">
+										<h5 className="card-title">{post.title}</h5>
+										<p className="card-text">{post.description}</p>
+									</div>
 								</div>
-							</div>
+							</Link>
 						</div>
 					))}
 				</div>
