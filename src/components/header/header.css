@@ -72,6 +72,7 @@ section.header .container-fluid img {
 	max-height: 90vh;
 	margin: 0;
 	padding: 0;
+	object-fit: cover;
 }
 
 @media only screen and (max-width: 768px) {
@@ -80,5 +81,6 @@ section.header .container-fluid img {
 		max-height: 90vh;
 		margin: 0;
 		padding: 0;
+		object-fit: cover;
 	}
 }

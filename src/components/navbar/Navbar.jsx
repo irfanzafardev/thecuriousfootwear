@@ -52,10 +52,10 @@ const Navbar = () => {
 										PROFILE
 									</Link>
 								</div>
-								<div className="item-btn d-none ms-3">
+								<div className="item-btn ms-3">
 									<Link to="/post/create" className="link">
 										<button type="button" className="btn btn-outline-dark">
-											Create post
+											CREATE POST
 										</button>
 									</Link>
 								</div>
@@ -68,7 +68,7 @@ const Navbar = () => {
 						) : (
 							<div className="item-btn">
 								<Link to="/login" className="link">
-									<button type="button" className="btn btn-outline-dark">
+									<button type="button" className="btn">
 										Log in
 									</button>
 								</Link>
@@ -87,39 +87,32 @@ const Navbar = () => {
 				<div className="modal-dialog">
 					<div className="modal-content">
 						<div className="modal-header">
-							<div className="nav-brand bg-">ONEPRESS</div>
+							<div className="nav-brand">FOOTWARE</div>
 							<button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div className="modal-body">
 							<div className="modal-line">
-								<div className="modal-item">Home</div>
-							</div>
-							<div className="modal-line">
-								<div className="modal-item">Category</div>
-							</div>
-							<div className="modal-line">
 								<div className="modal-item">Profile</div>
 							</div>
-
 							<div className="modal-btn">
 								<div className="item-btn">
 									<Link to="/post/create" className="link">
-										<button type="button" className="btn btn-outline-dark" data-bs-dismiss="modal" aria-label="Close">
+										<button type="button" className="btn" data-bs-dismiss="modal" aria-label="Close">
 											Create story
 										</button>
 									</Link>
 								</div>
 							</div>
-							<div className="modal-btn mt-2">
+							<div className="modal-btn">
 								<div className="item-btn">
-									<button type="button" className="btn btn-outline-dark">
+									<button type="button" className="btn">
 										Log out
 									</button>
 								</div>
 							</div>
 							<div className="modal-btn">
 								<Link to="/login" className="link">
-									<button type="button" className="btn btn-outline-dark" data-bs-dismiss="modal" aria-label="Close">
+									<button type="button" className="btn" data-bs-dismiss="modal" aria-label="Close">
 										Sign in
 									</button>
 								</Link>
