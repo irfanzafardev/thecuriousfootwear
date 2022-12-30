@@ -20,11 +20,10 @@ const login = async (userData) => {
   if (res.data) {
     localStorage.setItem('user', JSON.stringify(res.data))
   }
-
   return res.data
 }
 
-// Logout
+// Logout user
 const logout = () => {
   localStorage.removeItem('user')
 }

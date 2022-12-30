@@ -1,6 +1,6 @@
 section.explore-post {
 	width: 100%;
-	margin-top: 200px;
+	margin-top: 60px;
 	background-color: transparent;
 }
 
@@ -13,6 +13,8 @@ section.explore-post .container-fluid {
 
 section.explore-post .container-fluid .heading {
 	margin-bottom: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 section.explore-post .container-fluid .heading h1 {
@@ -20,8 +22,8 @@ section.explore-post .container-fluid .heading h1 {
 	font-family: "ESAllianz-Regular", sans-serif;
 	font-weight: 400;
 	font-style: normal;
-	font-size: 3.888888888888889rem;
-	line-height: 4.444444444444445rem;
+	font-size: 3.2rem;
+	line-height: 4rem;
 	letter-spacing: 0rem;
 }
 
@@ -31,13 +33,14 @@ section.explore-post .container-fluid .heading .icon {
 }
 
 /* section.explore-post .container-fluid .card {
-	border: none;
 } */
 
 section.explore-post .container-fluid .card {
 	width: 100%;
 	padding: 10px;
 	margin-bottom: 10px;
+	border: none;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 section.explore-post .container-fluid .card img {
@@ -50,6 +53,7 @@ section.explore-post .container-fluid .card img {
 section.explore-post .container-fluid .card .card-body {
 	margin: 0;
 	padding: 0;
+	color: #000;
 }
 
 section.explore-post .container-fluid .card p {

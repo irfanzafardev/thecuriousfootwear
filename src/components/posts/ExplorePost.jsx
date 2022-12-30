@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import MiniSpinner from "../loading/MiniSpinner";
 import "./explorepost.css";
 
 const ExplorePost = () => {
-	const [posts, setPosts] = useState([]);
+	const [posts, setPosts] = useState(null);
 	const [name, setName] = useState("");
 
 	const rootAPI = "https://thecuriousfootwear-server.vercel.app/api/post";
@@ -25,7 +26,7 @@ const ExplorePost = () => {
 		<section className="explore-post">
 			<div className="container-fluid">
 				<div className="heading">
-					<h1>ExplorePost</h1>
+					<h1>Explore post</h1>
 				</div>
 				<div className="d-none">
 					<input
@@ -37,19 +38,23 @@ const ExplorePost = () => {
 					/>
 				</div>
 				<div className="row">
-					{posts.map((post) => (
-						<div className="col-12 col-lg-4" key={post.id}>
-							<Link to={`post/${post.id}`} style={{ textDecoration: "none" }}>
-								<div className="card">
-									<img src={post.image} className="card-img-top" alt="product" />
-									<div className="card-body">
-										<h5 className="card-title">{post.title}</h5>
-										<p className="card-text">{post.description}</p>
+					{posts ? (
+						posts.map((post) => (
+							<div className="col-12 col-lg-4" key={post.id}>
+								<Link to={`post/${post.id}`} style={{ textDecoration: "none" }}>
+									<div className="card">
+										<img src={post.image} className="card-img-top" alt="product" />
+										<div className="card-body">
+											<h5 className="card-title">{post.title}</h5>
+											<p className="card-text">{post.description}</p>
+										</div>
 									</div>
-								</div>
-							</Link>
-						</div>
-					))}
+								</Link>
+							</div>
+						))
+					) : (
+						<MiniSpinner />
+					)}
 				</div>
 			</div>
 		</section>

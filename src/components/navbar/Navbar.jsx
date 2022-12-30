@@ -7,11 +7,6 @@ import "./navbar.css";
 import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
-	const [isActive, setActive] = useState(false);
-	const toggleClass = () => {
-		setActive(!isActive);
-	};
-
 	const [isSearchActive, setSearchActive] = useState(false);
 	const toggleSearchClass = () => {
 		setSearchActive(!isSearchActive);
@@ -22,8 +17,6 @@ const Navbar = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const { user } = useSelector((state) => state.auth);
-
-	console.log(user);
 
 	const handleLogout = () => {
 		dispatch(logout());
@@ -36,40 +29,30 @@ const Navbar = () => {
 			<nav className="row align-items-center fixed-top">
 				<div className="container-fluid">
 					<Link to="/" className="link">
-						<div className="nav-brand">The Curious Footwear</div>
-					</Link>
-					<div className="nav-items d-lg-flex">
-						<div className="item">
-							<input className={isSearchActive ? "search-box d-block" : "search-box d-none"} placeholder="Search" />
+						<div className="nav-brand">
+							{/* <p>THE CURIOUS FOOTWEAR</p> */}
+							<p>FOOTWARE</p>
 						</div>
-						<div className="item">
-							<div className="search-icon" onClick={toggleSearchClass}>
-								<BiSearch size="2rem" />
+					</Link>
+					<div className="search d-none d-lg-block">
+						<div className="search-box">
+							<input type="text" placeholder="Search" />
+							<div className="item">
+								<div className="search-icon" onClick={toggleSearchClass}>
+									<BiSearch size="1rem" color="#666666" />
+								</div>
 							</div>
 						</div>
-						<div className="item">
-							<Link to="/" className="link">
-								Home
-							</Link>
-						</div>
-						<div className="item">
-							<span onClick={toggleClass}>Categories</span>
-							<ul className={isActive ? "nav-dropdown d-block" : "nav-dropdown d-none"}>
-								<li>
-									<Link to={`/category?cat=`} className="link">
-										<div className="dropdown-item"></div>
-									</Link>
-								</li>
-							</ul>
-						</div>
+					</div>
+					<div className="nav-items d-lg-flex">
 						{user ? (
 							<>
 								<div className="item">
 									<Link to={`/profile`} className="link">
-										Profile
+										PROFILE
 									</Link>
 								</div>
-								<div className="item-btn ms-3">
+								<div className="item-btn d-none ms-3">
 									<Link to="/post/create" className="link">
 										<button type="button" className="btn btn-outline-dark">
 											Create post
@@ -77,8 +60,8 @@ const Navbar = () => {
 									</Link>
 								</div>
 								<div className="item-btn ms-3">
-									<button type="button" className="btn btn-outline-dark" onClick={handleLogout}>
-										Log out
+									<button type="button" className="btn" onClick={handleLogout}>
+										LOG OUT
 									</button>
 								</div>
 							</>

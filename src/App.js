@@ -12,6 +12,7 @@ import "./reset.css";
 import SignupPage from './pages/auth/SignupPage.jsx';
 import SinglePostPage from './pages/post/SinglePostPage.jsx';
 import CreatePostPage from './pages/post/CreatePostPage.jsx';
+import ProfilePage from './pages/profile/ProfilePage.jsx';
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
             <Route path=":id" element={<SinglePostPage />} />
             <Route path="create" element={<CreatePostPage />} />
           </Route>
+          <Route path="profile" element={<ProfilePage />} />
         </Route>
       </Routes>
     </BrowserRouter>
