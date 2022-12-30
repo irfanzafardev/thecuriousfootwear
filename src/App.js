@@ -10,6 +10,8 @@ import LoginPage from './pages/auth/LoginPage.jsx';
 
 import "./reset.css";
 import SignupPage from './pages/auth/SignupPage.jsx';
+import SinglePostPage from './pages/post/SinglePostPage.jsx';
+import CreatePostPage from './pages/post/CreatePostPage.jsx';
 
 const App = () => {
   return (
@@ -19,11 +21,10 @@ const App = () => {
           <Route index element={<LandingPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="signup" element={<SignupPage />} />
-          {/* <Route path="post">
-          <Route path=":id" element={<Post />} />
-          <Route path="test" element={<Post />} />
-          <Route path="create" element={<PostForm />} />
-        </Route> */}
+          <Route path="post">
+            <Route path=":id" element={<SinglePostPage />} />
+            <Route path="create" element={<CreatePostPage />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
