@@ -1,0 +1,19 @@
+footer {
+	width: 100%;
+}
+
+footer .container-fluid {
+	width: 100%;
+	padding-top: 200px;
+	padding-inline: 60px;
+}
+
+footer .container-fluid h1 {
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-weight: 500;
+	font-style: normal;
+	font-size: 4.1rem;
+	line-height: 6rem;
+	letter-spacing: 0em;
+	text-align: left;
+}

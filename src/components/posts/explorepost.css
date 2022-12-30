@@ -11,6 +11,10 @@ section.explore-post .container-fluid {
 	justify-content: space-between;
 }
 
+section.explore-post .container-fluid .heading {
+	margin-bottom: 20px;
+}
+
 section.explore-post .container-fluid .heading h1 {
 	display: inline;
 	font-family: "ESAllianz-Regular", sans-serif;
@@ -30,15 +34,22 @@ section.explore-post .container-fluid .heading .icon {
 	border: none;
 } */
 
-section.explore-post .container-fluid .card .card-body {
-	margin: 0;
-	padding: 0;
+section.explore-post .container-fluid .card {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
 }
 
 section.explore-post .container-fluid .card img {
 	width: 100%;
-	border-radius: 0;
+	height: 290px;
+	border-radius: 10px;
 	object-fit: cover;
+}
+
+section.explore-post .container-fluid .card .card-body {
+	margin: 0;
+	padding: 0;
 }
 
 section.explore-post .container-fluid .card p {

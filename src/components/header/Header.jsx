@@ -8,7 +8,7 @@ const Header = () => {
 		<section className="header">
 			<div className="container-fluid">
 				<h1>Header</h1>
-				{user ? <p>"{user.first_name}" sudah log in</p> : <p>No one logged in</p>}
+				{user ? <p>"{user.first_name}" has logged in</p> : <p>No one has logged in</p>}
 			</div>
 		</section>
 	);
