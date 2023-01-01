@@ -2,13 +2,14 @@ import React from "react";
 import CreateComment from "./CreateComment";
 import SingleComment from "./SingleComment";
 
+import "./comments.css";
+
 const Comments = () => {
 	return (
-		<div>
+		<>
 			<CreateComment />
-			<div>Comments</div>
 			<SingleComment />
-		</div>
+		</>
 	);
 };
 

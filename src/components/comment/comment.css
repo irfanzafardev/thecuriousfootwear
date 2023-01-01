@@ -1,0 +1,39 @@
+.comment {
+	padding-block: 10px;
+	display: flex;
+}
+
+.comment .user-profile img {
+	width: 55px;
+	height: 55px;
+	border-radius: 100%;
+	object-fit: cover;
+}
+
+.comment .comment-detail {
+	width: 100%;
+	padding-left: 12px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	height: auto;
+	line-height: 1;
+}
+
+.comment .comment-detail .date {
+	margin-top: 4px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	height: auto;
+	line-height: 1.6;
+}
+
+.comment .comment-detail .comment-body {
+	margin-top: 12px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	height: auto;
+	line-height: 1;
+}

@@ -44,7 +44,7 @@ section.header .container-fluid .heading h1 {
 section.header .container-fluid .heading p {
 	padding-right: 100px;
 	color: rgba(0, 0, 0, 0.6);
-	font-family: var(--s-font-ecbb00d0);
+	font-family: "ESAllianz-Regular", sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	height: auto;

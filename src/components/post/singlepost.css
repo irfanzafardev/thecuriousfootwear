@@ -1,25 +1,156 @@
 section.single-post {
+	box-sizing: border-box;
 	width: 100%;
+	margin: 0;
+	padding: 0;
 }
 
-section.single-post .container-fluid {
+section.single-post .main {
+	margin-right: 439px;
+}
+
+section.single-post .main .heading img {
 	width: 100%;
-	padding-top: 200px;
-	padding-inline: 60px;
-}
-
-section.single-post .container-fluid h1 {
-	font-family: "ESAllianz-Regular", sans-serif;
-	font-weight: 500;
-	font-style: normal;
-	font-size: 4.1rem;
-	line-height: 6rem;
-	letter-spacing: 0em;
-	text-align: left;
-}
-
-section.single-post .container-fluid img {
-	width: 600px;
-	height: 400px;
+	height: 100vh;
 	object-fit: cover;
+}
+
+section.single-post .main .container-fluid {
+	width: 100%;
+	margin-top: 40px;
+	padding-inline: 30px;
+}
+
+section.single-post .main .container-fluid .product-name h1 {
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 44px;
+	font-weight: 500;
+	line-height: 1.6;
+}
+
+section.single-post .main .container-fluid .product-desc h2 {
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 32px;
+	font-weight: 500;
+	line-height: 1.6;
+}
+
+section.single-post .main .container-fluid .product-desc p {
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 16px;
+	line-height: 22px;
+	margin-bottom: 16px;
+	text-shadow: 1px 1px 1px rgb(0 0 0 / 0%);
+}
+
+/* sidebar */
+section.single-post .sidebar {
+	position: fixed;
+	width: 439px;
+	min-height: 100vh;
+	padding-top: 60px;
+	top: 0;
+	right: 0;
+	z-index: 1;
+	border-left: 1px solid #ebedee;
+}
+
+section.single-post .sidebar .product-wrapper {
+	margin-inline: 36px;
+}
+
+section.single-post .sidebar .product-wrapper .product-category {
+	margin-top: 50px;
+}
+
+section.single-post .sidebar .product-wrapper .product-category p {
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	height: auto;
+	line-height: 1.6;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+section.single-post .sidebar .product-wrapper .product-name {
+	margin-top: 50px;
+}
+
+section.single-post .sidebar .product-wrapper .product-name h1 {
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 44px;
+	font-weight: 500;
+	line-height: 1.6;
+}
+
+section.single-post .sidebar .product-brand {
+	margin-top: 6px;
+}
+
+section.single-post .sidebar .product-brand p {
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	height: auto;
+	line-height: 1.6;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+section.single-post .sidebar .product-price {
+	margin-top: 50px;
+}
+
+section.single-post .sidebar .product-price {
+	margin-top: 50px;
+}
+
+section.single-post .sidebar .product-price p {
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 22px;
+	font-weight: 600;
+	height: auto;
+	line-height: 1.6;
+	text-transform: uppercase;
+}
+
+section.single-post .sidebar .product-price .suggested-price {
+	display: flex;
+	float: right;
+}
+
+section.single-post .sidebar .product-price span {
+	display: flex;
+	float: right;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	height: auto;
+	line-height: 1.6;
+	text-transform: capitalize;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+section.single-post .sidebar .product-price .initial-price {
+	border-right: 1px solid #ebedee;
+}
+
+section.single-post .sidebar .buttons {
+	margin-top: 60px;
+}
+
+section.single-post .sidebar .buttons .btn {
+	width: 100%;
+	margin-bottom: 20px;
+	padding-inline: 20px;
+	padding-block: 10px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	height: auto;
+	line-height: 1.6;
+	text-transform: capitalize;
+}
+
+section.single-post .spinner-container {
+	margin-top: 160px;
 }
