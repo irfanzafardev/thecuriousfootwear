@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import MiniSpinner from "../loading/MiniSpinner";
 import "./explorepost.css";
+import Null from "../loading/Null";
 
 const ExplorePost = () => {
 	const [posts, setPosts] = useState(null);
@@ -22,11 +23,15 @@ const ExplorePost = () => {
 		fetchPosts();
 		fetchPostsById();
 	}, []);
+	let result;
+	if (posts?.length === 0) {
+		result = <Null />;
+	}
 	return (
 		<section className="explore-post">
 			<div className="container-fluid">
 				<div className="heading">
-					<h1>Explore post</h1>
+					<h1>What's new</h1>
 				</div>
 				<div className="d-none">
 					<input
@@ -40,13 +45,22 @@ const ExplorePost = () => {
 				<div className="row">
 					{posts ? (
 						posts.map((post) => (
-							<div className="col-12 col-lg-4" key={post.id}>
+							<div className="col-12 col-lg-3" key={post.id}>
 								<Link to={`post/${post.id}`} style={{ textDecoration: "none" }}>
 									<div className="card">
 										<img src={post.image} className="card-img-top" alt="product" />
 										<div className="card-body">
-											<h5 className="card-title">{post.title}</h5>
-											<p className="card-text">{post.description}</p>
+											<p className="post-category">Category</p>
+											<h2 className="post-title">{post.title}</h2>
+											<p className="post-desc">{post.description}</p>
+											<div className="price row">
+												<div className="col-8">
+													<p>Avg. Suggested Price</p>
+												</div>
+												<div className="col-4">
+													<span>${post.suggested_price}</span>
+												</div>
+											</div>
 										</div>
 									</div>
 								</Link>
@@ -55,6 +69,7 @@ const ExplorePost = () => {
 					) : (
 						<MiniSpinner />
 					)}
+					{result}
 				</div>
 			</div>
 		</section>

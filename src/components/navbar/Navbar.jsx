@@ -52,14 +52,14 @@ const Navbar = () => {
 										PROFILE
 									</Link>
 								</div>
-								<div className="item-btn ms-3">
+								<div className="item-btn">
 									<Link to="/post/create" className="link">
-										<button type="button" className="btn btn-outline-dark">
+										<button type="button" className="btn">
 											CREATE POST
 										</button>
 									</Link>
 								</div>
-								<div className="item-btn ms-3">
+								<div className="item-btn">
 									<button type="button" className="btn" onClick={handleLogout}>
 										LOG OUT
 									</button>
@@ -98,7 +98,7 @@ const Navbar = () => {
 								<div className="item-btn">
 									<Link to="/post/create" className="link">
 										<button type="button" className="btn" data-bs-dismiss="modal" aria-label="Close">
-											Create story
+											Create post
 										</button>
 									</Link>
 								</div>
