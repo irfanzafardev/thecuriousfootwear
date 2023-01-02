@@ -13,6 +13,7 @@ import SignupPage from './pages/auth/SignupPage.jsx';
 import SinglePostPage from './pages/post/SinglePostPage.jsx';
 import CreatePostPage from './pages/post/CreatePostPage.jsx';
 import ProfilePage from './pages/profile/ProfilePage.jsx';
+import AboutPage from './pages/about/AboutPage.jsx';
 
 const App = () => {
   return (
@@ -26,6 +27,8 @@ const App = () => {
             <Route path=":id" element={<SinglePostPage />} />
             <Route path="create" element={<CreatePostPage />} />
           </Route>
+          <Route path="category" element={<AboutPage />} />
+          <Route path="about" element={<AboutPage />} />
           <Route path="profile" element={<ProfilePage />} />
         </Route>
       </Routes>

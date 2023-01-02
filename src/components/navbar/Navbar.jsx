@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import { GoThreeBars } from "react-icons/go";
-import { logout, reset } from "../../services/auth/authSlice";
 import "./navbar.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
 	const [isSearchActive, setSearchActive] = useState(false);
@@ -13,17 +12,8 @@ const Navbar = () => {
 	};
 
 	// const [search, setSearch] = useState("");
-
-	const navigate = useNavigate();
-	const dispatch = useDispatch();
 	const { user } = useSelector((state) => state.auth);
 
-	const handleLogout = () => {
-		dispatch(logout());
-		dispatch(reset());
-		window.location.reload();
-		navigate("/");
-	};
 	return (
 		<>
 			<nav className="row align-items-center fixed-top">
@@ -48,31 +38,40 @@ const Navbar = () => {
 						{user ? (
 							<>
 								<div className="item">
-									<Link to={`/profile`} className="link">
-										PROFILE
+									<Link to="/post/create" className="link">
+										Post your shoe
 									</Link>
 								</div>
+								<div className="divider">|</div>
+								<div className="item">
+									<Link to={`/profile`} className="link">
+										My Profile
+									</Link>
+								</div>
+								{/* <div className="item-btn">
+									<button type="button" className="btn" onClick={handleLogout}>
+										Log out
+									</button>
+								</div> */}
+							</>
+						) : (
+							<>
 								<div className="item-btn">
-									<Link to="/post/create" className="link">
+									<Link to="/about" className="link">
 										<button type="button" className="btn">
-											CREATE POST
+											About
 										</button>
 									</Link>
 								</div>
+								<div className="divider">|</div>
 								<div className="item-btn">
-									<button type="button" className="btn" onClick={handleLogout}>
-										LOG OUT
-									</button>
+									<Link to="/login" className="link">
+										<button type="button" className="btn">
+											Log in
+										</button>
+									</Link>
 								</div>
 							</>
-						) : (
-							<div className="item-btn">
-								<Link to="/login" className="link">
-									<button type="button" className="btn">
-										Log in
-									</button>
-								</Link>
-							</div>
 						)}
 					</div>
 					<div className="mobile-toggler d-lg-none ms-5">

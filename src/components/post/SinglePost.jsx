@@ -37,11 +37,11 @@ const SinglePost = () => {
 							<div className="product-price">
 								<div className="row">
 									<div className="col-6 initial-price">
-										<p>usd{post.price}</p>
+										<p>IDR{post.price}</p>
 									</div>
 									<div className="col-6">
 										<div className="suggested-price">
-											<p>usd{post.suggested_price}</p>
+											<p>IDR{post.suggested_price}</p>
 										</div>
 										<span>Avg. Suggested Price</span>
 									</div>
@@ -72,7 +72,7 @@ const SinglePost = () => {
 									<h1>{post.title}</h1>
 								</div>
 								<div className="product-desc">
-									<h2>description</h2>
+									<h2>Description</h2>
 									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 								</div>
 							</div>
@@ -87,6 +87,9 @@ const SinglePost = () => {
 					<div className="container-fluid">
 						<div className="heading">
 							<h1>Feedback</h1>
+						</div>
+						<div className="note">
+							<h2>Please log in to give your feedback.</h2>
 						</div>
 						{post ? (
 							<Comments postId={post.id} />

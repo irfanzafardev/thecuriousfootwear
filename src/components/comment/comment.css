@@ -21,7 +21,7 @@
 }
 
 .comment .comment-detail .date {
-	margin-top: 4px;
+	margin-top: 2px;
 	font-family: "ESAllianz-Regular", sans-serif;
 	font-size: 14px;
 	font-weight: 400;
@@ -30,10 +30,25 @@
 }
 
 .comment .comment-detail .comment-body {
-	margin-top: 12px;
+	margin-top: 8px;
 	font-family: "ESAllianz-Regular", sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	height: auto;
-	line-height: 1;
+	line-height: 1.6;
+}
+
+.comment .comment-detail .suggested-price {
+	display: inline-block;
+	margin-top: 2px;
+	padding-inline: 10px;
+	padding-block: 3px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 12px;
+	font-weight: 400;
+	height: auto;
+	line-height: 1.6;
+	border-radius: 50px;
+	color: #fff;
+	background-color: #000;
 }

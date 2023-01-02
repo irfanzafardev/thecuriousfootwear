@@ -10,6 +10,10 @@ const CreateComment = () => {
 			<div className="form-input">
 				<p>Name</p>
 				<input type="text" placeholder="Add a feedback..." />
+				<input type="number" className="currency" placeholder="" />
+				<button type="submit" className="btn btn-outline-dark">
+					Send
+				</button>
 			</div>
 		</div>
 	);

@@ -30,8 +30,8 @@ section.single-post .main .container-fluid .product-name h1 {
 
 section.single-post .main .container-fluid .product-desc h2 {
 	font-family: "ESAllianz-Regular", sans-serif;
-	font-size: 32px;
-	font-weight: 500;
+	font-size: 28px;
+	font-weight: 600;
 	line-height: 1.6;
 }
 
@@ -41,6 +41,13 @@ section.single-post .main .container-fluid .product-desc p {
 	line-height: 22px;
 	margin-bottom: 16px;
 	text-shadow: 1px 1px 1px rgb(0 0 0 / 0%);
+}
+
+section.single-post .main .container-fluid .note h2 {
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 28px;
+	font-weight: 600;
+	line-height: 1.6;
 }
 
 /* sidebar */

@@ -1,0 +1,37 @@
+section.category-slider {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+section.category-slider .slider {
+	width: 100%;
+	padding: 10px 20px;
+	margin-left: -12px;
+}
+
+section.category-slider .slider .item {
+	max-width: 100px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+section.category-slider .slider .item .btn {
+	padding-block: 4px;
+	padding-inline: 16px;
+	border-radius: 50px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.6;
+}
+
+section.category-slider button {
+	margin-top: 10px;
+	padding-block: 4px;
+	padding-inline: 16px;
+	border-radius: 50px;
+	font-family: "ESAllianz-Regular", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.6;
+}

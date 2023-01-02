@@ -1,6 +1,6 @@
 import React from "react";
 import CreateComment from "./CreateComment";
-import SingleComment from "./SingleComment";
+import Comment from "./Comment";
 
 import "./comments.css";
 
@@ -8,7 +8,7 @@ const Comments = () => {
 	return (
 		<>
 			<CreateComment />
-			<SingleComment />
+			<Comment />
 		</>
 	);
 };

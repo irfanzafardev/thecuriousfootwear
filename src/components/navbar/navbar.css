@@ -86,25 +86,6 @@ nav .nav-items .item:first-child {
 	cursor: pointer;
 }
 
-nav .nav-items .nav-dropdown {
-	position: absolute;
-	display: block;
-	margin-top: 10px;
-	z-index: 9999;
-	background-color: #fff;
-	box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-}
-
-nav .nav-items .nav-dropdown li {
-	padding: 20px 20px;
-	border-bottom: 1px solid #000;
-}
-
-nav .nav-items .nav-dropdown li:last-child {
-	padding: 20px 16px;
-	border-bottom: none;
-}
-
 nav .nav-items .item-btn button {
 	font-family: "Be Vietnam Pro", sans-serif;
 	font-size: 13px;
@@ -115,6 +96,10 @@ nav .nav-items .item-btn button {
 	max-width: 100%;
 	justify-content: center;
 	text-transform: capitalize;
+}
+
+nav .nav-items .divider {
+	margin-inline: 20px;
 }
 
 .link {

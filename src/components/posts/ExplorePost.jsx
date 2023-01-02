@@ -1,9 +1,10 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import MiniSpinner from "../loading/MiniSpinner";
-import "./explorepost.css";
 import Null from "../loading/Null";
+import CategorySlider from "../category/CategorySlider";
+import "./explorepost.css";
 
 const ExplorePost = () => {
 	const [posts, setPosts] = useState(null);
@@ -16,13 +17,14 @@ const ExplorePost = () => {
 	};
 
 	const fetchPostsById = async () => {
-		const { data } = await axios.get(rootAPI + "/63ae118b4e0635a84f07cb82");
+		const { data } = await axios.get(rootAPI + "/63b166c79db49bd5deb09cfa");
 		setName(data.title);
 	};
 	useEffect(() => {
 		fetchPosts();
 		fetchPostsById();
 	}, []);
+
 	let result;
 	if (posts?.length === 0) {
 		result = <Null />;
@@ -32,6 +34,9 @@ const ExplorePost = () => {
 			<div className="container-fluid">
 				<div className="heading">
 					<h1>What's new</h1>
+				</div>
+				<div className="category-slider">
+					<CategorySlider />
 				</div>
 				<div className="d-none">
 					<input

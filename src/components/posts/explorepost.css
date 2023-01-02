@@ -12,7 +12,7 @@ section.explore-post .container-fluid {
 }
 
 section.explore-post .container-fluid .heading {
-	margin-bottom: 20px;
+	margin-bottom: 6px;
 	padding-bottom: 20px;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -32,12 +32,17 @@ section.explore-post .container-fluid .heading .icon {
 	padding: 0;
 }
 
+/* Card */
+
 section.explore-post .container-fluid .card {
 	width: 100%;
 	padding: 10px;
 	margin-bottom: 10px;
-	border: none;
-	/* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+	border: 1px solid #fff;
+}
+
+section.explore-post .container-fluid .card:hover {
+	border: 1px solid #000;
 }
 
 section.explore-post .container-fluid .card img {
