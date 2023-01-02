@@ -1,14 +1,15 @@
 import React from "react";
+import About from "../../components/about/About";
+import Navbar from "../../components/navbar/Navbar";
+import Footer from "../../components/footer/Footer";
 
 const AboutPage = () => {
 	return (
-		<section className="about">
-			<div className="container-fluid">
-				<div className="heading">
-					<h1>About</h1>
-				</div>
-			</div>
-		</section>
+		<>
+			<Navbar />
+			<About />
+			<Footer />
+		</>
 	);
 };
 

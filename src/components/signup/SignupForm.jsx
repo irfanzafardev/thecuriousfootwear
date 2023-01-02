@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { register, reset } from "../../services/auth/authSlice";
 import Spinner from "../loading/Spinner";
@@ -68,48 +68,71 @@ const SignupForm = () => {
 		return <Spinner />;
 	}
 	return (
-		<section className="signup-form">
-			<h2>Sign up</h2>
-			<form onSubmit={hanldeSubmit}>
-				<div className="input-group">
-					<input type="text" id="firstName" name="first_name" placeholder="Enter your first name" value={first_name} onChange={handleChange}></input>
-					<label>First name</label>
+		<>
+			<section className="signup">
+				<div className="container-fluid">
+					<div className="row signup-row">
+						<div className="col-12 col-lg-6 welcome-column">
+							<div className="heading">
+								<h1>
+									Footware <span className="divider"></span> <span className="text"> The Curious Footwear</span>
+								</h1>
+							</div>
+						</div>
+						<div className="col-12 col-lg-6 signup-column">
+							<div className="signup-form">
+								<div className="heading">
+									<h2>Sign up</h2>
+									<p>
+										Already have account?
+										<Link to="/signin" className="link">
+											<span> </span> Sign in
+										</Link>
+									</p>
+								</div>
+								<form onSubmit={hanldeSubmit}>
+									<div className="row name-row">
+										<div className="col-6">
+											<div className="input-group">
+												<input type="text" id="firstName" name="first_name" value={first_name} onChange={handleChange}></input>
+												<label>First name</label>
+											</div>
+										</div>
+										<div className="col-6">
+											<div className="input-group">
+												<input type="text" id="lastName" name="last_name" value={last_name} onChange={handleChange}></input>
+												<label>Last name</label>
+											</div>
+										</div>
+									</div>
+									<div className="input-group">
+										<input type="text" id="email" name="email" value={email} onChange={handleChange}></input>
+										<label>Email</label>
+									</div>
+									<div className="input-group">
+										<input type="text" id="username" name="username" value={username} onChange={handleChange}></input>
+										<label>Username</label>
+									</div>
+									<div className="input-group">
+										<input type="password" id="password" name="password" value={password} onChange={handleChange}></input>
+										<label>Password</label>
+									</div>
+									<div className="input-group">
+										<input type="password" id="confirmPassword" name="confirmPassword" value={confirmPassword} onChange={handleChange}></input>
+										<label>Confirm Password</label>
+									</div>
+									<div className="item-btn float-end">
+										<button type="submit" className="btn btn-primary">
+											Sign Up
+										</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div className="input-group">
-					<input type="text" id="lastName" name="last_name" placeholder="Enter your last name" value={last_name} onChange={handleChange}></input>
-					<label>Last name</label>
-				</div>
-				<div className="input-group">
-					<input type="text" id="email" name="email" placeholder="Enter your email" value={email} onChange={handleChange}></input>
-					<label>Email</label>
-				</div>
-				<div className="input-group">
-					<input type="text" id="username" name="username" placeholder="Enter your email" value={username} onChange={handleChange}></input>
-					<label>Username</label>
-				</div>
-				<div className="input-group">
-					<input type="text" id="phone_number" name="phone_number" placeholder="Enter your phone number" value={phone_number} onChange={handleChange}></input>
-					<label>Phone</label>
-				</div>
-				<div className="input-group">
-					<input type="text" id="about" name="about" placeholder="Enter your bio" value={about} onChange={handleChange}></input>
-					<label>About</label>
-				</div>
-				<div className="input-group">
-					<input type="password" id="password" name="password" placeholder="Create your password" value={password} onChange={handleChange}></input>
-					<label>Password</label>
-				</div>
-				<div className="input-group">
-					<input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" value={confirmPassword} onChange={handleChange}></input>
-					<label>Confirm Password</label>
-				</div>
-				<div className="item-btn float-end">
-					<button type="submit" className="btn btn-outline-dark">
-						Sign Up
-					</button>
-				</div>
-			</form>
-		</section>
+			</section>
+		</>
 	);
 };
 

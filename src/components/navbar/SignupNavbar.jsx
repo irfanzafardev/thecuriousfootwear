@@ -5,16 +5,16 @@ const SignupNavbar = () => {
 	return (
 		<nav className="row align-items-center fixed-top">
 			<div className="container-fluid">
-				<div className="nav-brand">
-					<Link to="/" className="link">
-						The Curious Footwear
-					</Link>
-				</div>
+				<Link to="/" className="link">
+					<div className="nav-brand">
+						<p>FOOTWARE</p>
+					</div>
+				</Link>
 				<div className="nav-items d-flex">
 					<div className="item-btn">
-						<Link to="/login" className="link">
-							<button type="button" className="btn btn-outline-dark">
-								Login
+						<Link to="/signin" className="link">
+							<button type="button" className="btn">
+								Sign in
 							</button>
 						</Link>
 					</div>

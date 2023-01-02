@@ -1,19 +1,20 @@
 footer {
 	width: 100%;
+	background-color: #fff;
+	border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
 footer .container-fluid {
 	width: 100%;
-	padding-top: 200px;
 	padding-inline: 60px;
+	padding-block: 10px;
 }
 
-footer .container-fluid h1 {
+footer .container-fluid p {
 	font-family: "ESAllianz-Regular", sans-serif;
 	font-weight: 500;
 	font-style: normal;
-	font-size: 4.1rem;
-	line-height: 6rem;
+	font-size: 14px;
 	letter-spacing: 0em;
-	text-align: left;
+	text-align: center;
 }

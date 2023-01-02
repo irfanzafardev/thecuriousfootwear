@@ -29,7 +29,9 @@ const SinglePost = () => {
 								<p>Category</p>
 							</div>
 							<div className="product-name">
-								<h1>{post.title}</h1>
+								<h1>
+									{post.title} {post.userId}
+								</h1>
 							</div>
 							<div className="product-brand">
 								<p>Brand</p>

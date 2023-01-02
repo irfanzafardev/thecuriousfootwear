@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login, reset } from "../../services/auth/authSlice";
 import Spinner from "../loading/Spinner";
@@ -50,24 +50,49 @@ const LoginForm = () => {
 		return <Spinner />;
 	}
 	return (
-		<section className="login-form">
-			<h2>Log in</h2>
-			<form onSubmit={handleSubmit}>
-				<div className="input-group">
-					<input type="text" id="username" name="username" placeholder="Enter your username" value={username} onChange={handleChange}></input>
-					<label>Username</label>
+		<>
+			<section className="login">
+				<div className="container-fluid">
+					<div className="row">
+						<div className="col-12 col-lg-6 welcome-column">
+							<div className="heading">
+								<h1>
+									Footware <span className="divider"></span> <span className="text"> The Curious Footwear</span>
+								</h1>
+							</div>
+						</div>
+						<div className="col-12 col-lg-6 login-column">
+							<div className="login-form">
+								<div className="heading">
+									<h2>Sign in</h2>
+									<p>
+										New user?
+										<Link to="/signup" className="link">
+											<span> </span> Create an account
+										</Link>
+									</p>
+								</div>
+								<form onSubmit={handleSubmit}>
+									<div className="input-group">
+										<input type="text" id="username" name="username" value={username} onChange={handleChange} autoFocus></input>
+										<label>Username</label>
+									</div>
+									<div className="input-group">
+										<input type="password" id="password" name="password" value={password} onChange={handleChange}></input>
+										<label>Password</label>
+									</div>
+									<div className="item-btn float-end">
+										<button type="submit" className="btn btn-primary">
+											Sign in
+										</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div className="input-group">
-					<input type="password" id="password" name="password" placeholder="Create your password" value={password} onChange={handleChange}></input>
-					<label>Password</label>
-				</div>
-				<div className="item-btn float-end">
-					<button type="submit" className="btn btn-outline-dark">
-						Log in
-					</button>
-				</div>
-			</form>
-		</section>
+			</section>
+		</>
 	);
 };
 

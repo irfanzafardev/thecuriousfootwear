@@ -37,15 +37,24 @@ const Navbar = () => {
 					<div className="nav-items d-lg-flex">
 						{user ? (
 							<>
+								<div className="item-btn">
+									<Link to="/about" className="link">
+										<button type="button" className="btn">
+											About
+										</button>
+									</Link>
+								</div>
+								<div className="divider">|</div>
+
 								<div className="item">
 									<Link to="/post/create" className="link">
-										Post your shoe
+										Share your shoe
 									</Link>
 								</div>
 								<div className="divider">|</div>
 								<div className="item">
 									<Link to={`/profile`} className="link">
-										My Profile
+										Hi, {user.first_name}
 									</Link>
 								</div>
 								{/* <div className="item-btn">
@@ -65,9 +74,9 @@ const Navbar = () => {
 								</div>
 								<div className="divider">|</div>
 								<div className="item-btn">
-									<Link to="/login" className="link">
+									<Link to="/signin" className="link">
 										<button type="button" className="btn">
-											Log in
+											Sign in
 										</button>
 									</Link>
 								</div>

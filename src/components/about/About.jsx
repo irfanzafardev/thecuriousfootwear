@@ -1,9 +1,9 @@
 import React from "react";
-import "./header.css";
+import "./about.css";
 
-const Header = () => {
+const About = () => {
 	return (
-		<section className="header d-none">
+		<section className="about">
 			<div className="container-fluid row pe-0">
 				<div className="col-12 col-lg-7">
 					<div className="heading">
@@ -19,4 +19,4 @@ const Header = () => {
 	);
 };
 
-export default Header;
+export default About;
