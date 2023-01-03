@@ -11,7 +11,7 @@ import LoginPage from './pages/auth/LoginPage.jsx';
 import "./reset.css";
 import SignupPage from './pages/auth/SignupPage.jsx';
 import SinglePostPage from './pages/post/SinglePostPage.jsx';
-import CreatePostPage from './pages/post/CreatePostPage.jsx';
+import UploadPostPage from './pages/post/UploadPostPage.jsx';
 import ProfilePage from './pages/profile/ProfilePage.jsx';
 import AboutPage from './pages/about/AboutPage.jsx';
 
@@ -25,11 +25,14 @@ const App = () => {
           <Route path="signup" element={<SignupPage />} />
           <Route path="post">
             <Route path=":id" element={<SinglePostPage />} />
-            <Route path="create" element={<CreatePostPage />} />
+            <Route path="upload" element={<UploadPostPage />} />
           </Route>
           <Route path="category" element={<AboutPage />} />
           <Route path="about" element={<AboutPage />} />
-          <Route path="profile" element={<ProfilePage />} />
+          <Route path="profile">
+            <Route path="me" element={<ProfilePage />} />
+            <Route path=":id" element={<ProfilePage />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

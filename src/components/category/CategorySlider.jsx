@@ -37,7 +37,7 @@ const CategorySlider = () => {
 			{
 				breakpoint: 480,
 				settings: {
-					slidesToShow: 1,
+					slidesToShow: 2,
 					slidesToScroll: 1,
 				},
 			},
@@ -46,7 +46,7 @@ const CategorySlider = () => {
 	return (
 		<section className="category-slider">
 			<div className="row">
-				<div className="col-6">
+				<div className="col-12 col-lg-6">
 					<div className="slider ">
 						<Slider {...settings}>
 							<div className="item">

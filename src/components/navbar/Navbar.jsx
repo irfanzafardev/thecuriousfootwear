@@ -48,7 +48,7 @@ const Navbar = () => {
 
 								<div className="item">
 									<Link to="/post/create" className="link">
-										Share your shoe
+										Share your footwear
 									</Link>
 								</div>
 								<div className="divider">|</div>

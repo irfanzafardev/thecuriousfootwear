@@ -17,7 +17,7 @@ const ExplorePost = () => {
 	};
 
 	const fetchPostsById = async () => {
-		const { data } = await axios.get(rootAPI + "/63b166c79db49bd5deb09cfa");
+		const { data } = await axios.get(rootAPI + "/63b2eb01aebf923dc8bd75f5");
 		setName(data.title);
 	};
 	useEffect(() => {

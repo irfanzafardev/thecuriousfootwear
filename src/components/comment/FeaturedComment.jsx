@@ -4,7 +4,7 @@ import "./featuredcomment.css";
 
 const FeaturedComment = () => {
 	return (
-		<section className="featured-comment">
+		<section className="featured-comment mb-5">
 			<div className="container-fluid">
 				<div className="heading">
 					<h1>Feedbacks</h1>
