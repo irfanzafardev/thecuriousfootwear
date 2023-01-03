@@ -1,7 +1,10 @@
 footer {
+	position: fixed;
+	bottom: 0;
 	width: 100%;
 	background-color: #fff;
 	border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+	z-index: 1;
 }
 
 footer .container-fluid {

@@ -4,6 +4,7 @@ import { BiSearch } from "react-icons/bi";
 import { GoThreeBars } from "react-icons/go";
 import "./navbar.css";
 import { useSelector } from "react-redux";
+import UploadPostPage from "../../pages/post/UploadPostPage";
 
 const Navbar = () => {
 	const [isSearchActive, setSearchActive] = useState(false);
@@ -11,12 +12,13 @@ const Navbar = () => {
 		setSearchActive(!isSearchActive);
 	};
 
+	const [open, setOpen] = useState(false);
 	// const [search, setSearch] = useState("");
 	const { user } = useSelector((state) => state.auth);
 
 	return (
 		<>
-			<nav className="row align-items-center fixed-top">
+			<nav className="row align-items-center">
 				<div className="container-fluid">
 					<Link to="/" className="link">
 						<div className="nav-brand">
@@ -45,15 +47,12 @@ const Navbar = () => {
 									</Link>
 								</div>
 								<div className="divider">|</div>
-
-								<div className="item">
-									<Link to="/post/create" className="link">
-										Share your footwear
-									</Link>
+								<div className="item" onClick={() => setOpen(true)}>
+									Share your footwear
 								</div>
 								<div className="divider">|</div>
 								<div className="item">
-									<Link to={`/profile`} className="link">
+									<Link to={`/profile/me`} className="link">
 										Hi, {user.first_name}
 									</Link>
 								</div>
@@ -129,6 +128,8 @@ const Navbar = () => {
 					</div>
 				</div>
 			</div>
+
+			{open && <UploadPostPage setOpen={setOpen} />}
 		</>
 	);
 };

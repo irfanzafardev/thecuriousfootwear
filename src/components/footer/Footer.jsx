@@ -5,7 +5,7 @@ import { FiArrowUpRight } from "react-icons/fi";
 
 const Footer = () => {
 	return (
-		<footer className="fixed-bottom">
+		<footer>
 			<div className="container-fluid">
 				<div className="footer-body">
 					<p>
