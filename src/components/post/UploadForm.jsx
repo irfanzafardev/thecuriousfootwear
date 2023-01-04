@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { createPost } from "../../services/post/postSlice";
 
 import "./uploadform.css";
 
@@ -11,9 +12,9 @@ const UploadForm = ({ setOpen }) => {
 	const rootAPI = "https://thecuriousfootwear-server.vercel.app/api";
 
 	// Create new post
-
 	const [inputs, setInputs] = useState(0);
 
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
 	const handleChange = (e) => {
@@ -23,13 +24,12 @@ const UploadForm = ({ setOpen }) => {
 		});
 	};
 
-	console.log(inputs);
+	// console.log(inputs);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const res = await axios.post(rootAPI + `/post`, inputs);
-		// dispatch(updateSuccess(res));
-		console.log(res.data);
+		dispatch(createPost(inputs));
+		console.log(inputs);
 		navigate("/");
 	};
 
@@ -70,7 +70,7 @@ const UploadForm = ({ setOpen }) => {
 						<label>Product description</label>
 					</div>
 					<div className="input-group">
-						<input type="text" name="purchase_date" onChange={handleChange}></input>
+						<input type="date" name="purchase_date" onChange={handleChange}></input>
 						<label>Product purchase date</label>
 					</div>
 					<div className="row price-row">

@@ -23,7 +23,7 @@ const Navbar = () => {
 					<Link to="/" className="link">
 						<div className="nav-brand">
 							{/* <p>THE CURIOUS FOOTWEAR</p> */}
-							<p>FOOTWARE 1</p>
+							<p>FOOTWARE</p>
 						</div>
 					</Link>
 					<div className="search d-none d-lg-block">

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+// import { useSelector } from "react-redux";
 import Comments from "../comment/Comments";
 import MiniSpinner from "../loading/MiniSpinner";
 import "./singlepost.css";
@@ -11,7 +12,7 @@ import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 const SinglePost = () => {
 	const path = useLocation().pathname.split("/")[2];
 	const [post, setPost] = useState(null);
-	const [user, setUser] = useState("");
+	const [owner, setOwner] = useState("");
 
 	const rootAPI = "https://thecuriousfootwear-server.vercel.app/api/";
 
@@ -20,7 +21,7 @@ const SinglePost = () => {
 			try {
 				const postRes = await axios.get(rootAPI + "post/" + path);
 				const userRes = await axios.get(rootAPI + `user/profil/${postRes.data.userId}`);
-				setUser(userRes.data);
+				setOwner(userRes.data);
 				setPost(postRes.data);
 			} catch (error) {
 				console.log(error);
@@ -31,6 +32,8 @@ const SinglePost = () => {
 	}, [path]);
 
 	// Like and dislike post
+	// const { user } = useSelector((state) => state.auth);
+	// const { post } = useSelector((state) => state.auth);
 	const handleLike = async () => {
 		// await axios.put(`/users/like/${currentVideo._id}`);
 		// dispatch(like(currentUser._id));
@@ -99,10 +102,10 @@ const SinglePost = () => {
 								</div>
 								<div className="post-detail">
 									<div className="user">
-										<div className="user-profile">{user[0].image ? <img src={user[0].image} alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
+										<div className="user-profile">{owner[0].image ? <img src={owner[0].image} alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
 										<div className="user-info">
 											<div>
-												<div className="username">{user[0].first_name}</div>
+												<div className="username">{owner[0].first_name}</div>
 												<div className="created-at">A moment ago</div>
 											</div>
 										</div>
