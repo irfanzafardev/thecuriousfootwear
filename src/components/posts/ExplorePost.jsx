@@ -1,33 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import MiniSpinner from "../loading/MiniSpinner";
 import Null from "../loading/Null";
 import CategorySlider from "../category/CategorySlider";
 import "./explorepost.css";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllPost, reset } from "../../services/post/postSlice";
 
 const ExplorePost = () => {
-	const [posts, setPosts] = useState(null);
-	// const [name, setName] = useState("");
-
-	const rootAPI = "https://thecuriousfootwear-server.vercel.app/api/post";
-	const fetchPosts = async () => {
-		const { data } = await axios.get(rootAPI + "/all");
-		setPosts(data);
-	};
+	const dispatch = useDispatch();
+	const { posts, isLoading, isError, message } = useSelector((state) => state.post);
 
 	// const fetchPostsById = async () => {
 	// 	const { data } = await axios.get(rootAPI + "/63b2eb39c2a98d0be03bd693");
 	// 	setName(data.title);
 	// };
 	useEffect(() => {
-		fetchPosts();
-		// fetchPostsById();
-	}, []);
+		if (isError) {
+			console.log(message);
+		}
+		dispatch(getAllPost());
+		return () => {
+			dispatch(reset());
+		};
 
-	let result;
-	if (posts?.length === 0) {
-		result = <Null />;
+		// fetchPostsById();
+	}, [isError, message, dispatch]);
+	if (isLoading) {
+		return <MiniSpinner />;
 	}
 	return (
 		<section className="explore-post">
@@ -48,7 +48,7 @@ const ExplorePost = () => {
 					/>
 				</div> */}
 				<div className="row">
-					{posts ? (
+					{posts.length > 0 ? (
 						posts.map((post) => (
 							<div className="col-12 col-lg-3" key={post.id}>
 								<Link to={`post/${post.id}`} style={{ textDecoration: "none" }}>
@@ -72,9 +72,8 @@ const ExplorePost = () => {
 							</div>
 						))
 					) : (
-						<MiniSpinner />
+						<Null />
 					)}
-					{result}
 				</div>
 			</div>
 		</section>

@@ -6,30 +6,35 @@ import Comments from "../comment/Comments";
 import MiniSpinner from "../loading/MiniSpinner";
 import "./singlepost.css";
 
-// import { AiOutlineLike, AiOutlineDislike, AiFillDislike, AiFillLike } from "react-icons/ai";
-import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
+import { AiOutlineLike, AiOutlineDislike, AiFillDislike, AiFillLike } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { getCurrentPost } from "../../services/post/postSlice";
 
 const SinglePost = () => {
 	const path = useLocation().pathname.split("/")[2];
-	const [post, setPost] = useState(null);
+	const [post, setPost] = useState("");
 	const [owner, setOwner] = useState("");
+
+	const dispatch = useDispatch();
+	const { user } = useSelector((state) => state.auth);
+	const { posts } = useSelector((state) => state.post);
 
 	const rootAPI = "https://thecuriousfootwear-server.vercel.app/api/";
 
 	useEffect(() => {
-		const fetchPost = async () => {
+		const fetchOwner = async () => {
 			try {
 				const postRes = await axios.get(rootAPI + "post/" + path);
 				const userRes = await axios.get(rootAPI + `user/profil/${postRes.data.userId}`);
-				setOwner(userRes.data);
 				setPost(postRes.data);
+				setOwner(userRes.data);
+				dispatch(getCurrentPost(postRes.data._id));
 			} catch (error) {
 				console.log(error);
 			}
 		};
-
-		fetchPost();
-	}, [path]);
+		fetchOwner();
+	}, [path, dispatch]);
 
 	// Like and dislike post
 	// const { user } = useSelector((state) => state.auth);
@@ -43,7 +48,6 @@ const SinglePost = () => {
 		// await axios.put(`/users/dislike/${currentVideo._id}`);
 		// dispatch(dislike(currentUser._id));
 	};
-
 	return (
 		<section className="single-post">
 			<div className="sidebar d-none d-lg-block">
@@ -102,10 +106,12 @@ const SinglePost = () => {
 								</div>
 								<div className="post-detail">
 									<div className="user">
-										<div className="user-profile">{owner[0].image ? <img src={owner[0].image} alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
+										<div className="user-profile">{owner[0].image ? <img src="" alt="" /> : <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />}</div>
 										<div className="user-info">
 											<div>
-												<div className="username">{owner[0].first_name}</div>
+												<div className="username">
+													{owner[0].first_name} {owner[0].last_name}
+												</div>
 												<div className="created-at">A moment ago</div>
 											</div>
 										</div>
@@ -116,12 +122,10 @@ const SinglePost = () => {
 									<div className="post-option">
 										<div className="like-post">
 											<button className="like" onClick={handleLike}>
-												{/* {currentVideo.likes?.includes(currentUser._id) ?<AiFillLike />: <AiOutlineLike /> {currentVideo.likes?.length} */}
-												<AiOutlineLike size="1.4em" /> 100
+												{posts.like?.includes(user._id) ? <AiFillLike size="1.4em" /> : <AiOutlineLike size="1.4em" />} {posts.like?.length}
 											</button>
 											<button onClick={handleDislike}>
-												{/* {currentVideo.likes?.includes(currentUser._id) ?<AiFillDislike />: <AiOutlineDislike /> {currentVideo.likes?.length} */}
-												<AiOutlineDislike size="1.4em" /> 0
+												{posts.dislike?.includes(user._id) ? <AiFillDislike size="1.4em" /> : <AiOutlineDislike size="1.4em" />} {posts.dislike?.length}
 											</button>
 										</div>
 										<div className="share-post">Share</div>
@@ -144,11 +148,8 @@ const SinglePost = () => {
 						<div className="heading">
 							<h1>Feedback</h1>
 						</div>
-						<div className="note">
-							<h2>Please log in to give your feedback.</h2>
-						</div>
 						{post ? (
-							<Comments postId={post.id} />
+							<Comments postId={post.id} user={user} />
 						) : (
 							<div className="comment-spinner-container">
 								<MiniSpinner />

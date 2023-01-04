@@ -4,10 +4,10 @@ import Comment from "./Comment";
 
 import "./comments.css";
 
-const Comments = () => {
+const Comments = ({ user, postId }) => {
 	return (
 		<>
-			<CreateComment />
+			<CreateComment user={user} />
 			<Comment />
 		</>
 	);
