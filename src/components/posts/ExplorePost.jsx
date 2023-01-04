@@ -8,7 +8,7 @@ import "./explorepost.css";
 
 const ExplorePost = () => {
 	const [posts, setPosts] = useState(null);
-	const [name, setName] = useState("");
+	// const [name, setName] = useState("");
 
 	const rootAPI = "https://thecuriousfootwear-server.vercel.app/api/post";
 	const fetchPosts = async () => {
@@ -16,13 +16,13 @@ const ExplorePost = () => {
 		setPosts(data);
 	};
 
-	const fetchPostsById = async () => {
-		const { data } = await axios.get(rootAPI + "/63b2eb01aebf923dc8bd75f5");
-		setName(data.title);
-	};
+	// const fetchPostsById = async () => {
+	// 	const { data } = await axios.get(rootAPI + "/63b2eb39c2a98d0be03bd693");
+	// 	setName(data.title);
+	// };
 	useEffect(() => {
 		fetchPosts();
-		fetchPostsById();
+		// fetchPostsById();
 	}, []);
 
 	let result;
@@ -38,7 +38,7 @@ const ExplorePost = () => {
 				<div className="category-slider">
 					<CategorySlider />
 				</div>
-				<div className="d-none">
+				{/* <div className="d-none">
 					<input
 						type="text"
 						value={name}
@@ -46,7 +46,7 @@ const ExplorePost = () => {
 							setName(e.target.value);
 						}}
 					/>
-				</div>
+				</div> */}
 				<div className="row">
 					{posts ? (
 						posts.map((post) => (

@@ -1,14 +1,15 @@
 import React from "react";
+import PostByCatgeory from "../../components/category/PostByCatgeory";
+import Footer from "../../components/footer/Footer";
+import Navbar from "../../components/navbar/Navbar";
 
 const CategoryPage = () => {
 	return (
-		<section className="category">
-			<div className="container-fluid">
-				<div className="heading">
-					<h1>Category</h1>
-				</div>
-			</div>
-		</section>
+		<>
+			<Navbar />
+			<PostByCatgeory />
+			<Footer />
+		</>
 	);
 };
 

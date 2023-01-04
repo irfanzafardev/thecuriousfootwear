@@ -6,6 +6,17 @@ import Spinner from "../loading/Spinner";
 import "./login.css";
 
 const LoginForm = () => {
+	// const handleLogin = async (e) => {
+	// 	e.preventDefault();
+	// 	dispatch(loginStart());
+	// 	try {
+	// 		const { data } = await axios.post(`auth/signin`, { username, password });
+	// 		dispatch(loginSuccess(data));
+	// 		navigate("/");
+	// 	} catch (err) {
+	// 		dispatch(loginFailure());
+	// 	}
+	// };
 	const [formData, setFormData] = useState({
 		username: "",
 		password: "",

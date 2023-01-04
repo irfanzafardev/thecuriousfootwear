@@ -1,9 +1,48 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import "./uploadform.css";
 
 const UploadForm = ({ setOpen }) => {
+	const { user } = useSelector((state) => state.auth);
+	const rootAPI = "https://thecuriousfootwear-server.vercel.app/api";
+
+	// Create new post
+
+	const [inputs, setInputs] = useState(0);
+
+	const navigate = useNavigate();
+
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		setInputs((prev) => {
+			return { ...prev, [name]: value, username: user.username };
+		});
+	};
+
+	console.log(inputs);
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		const res = await axios.post(rootAPI + `/post`, inputs);
+		// dispatch(updateSuccess(res));
+		console.log(res.data);
+		navigate("/");
+	};
+
+	// Fetch category
+	const [categories, setCategories] = useState([]);
+
+	const fetchCategories = async () => {
+		const { data } = await axios.get(rootAPI + "/category/all");
+		setCategories(data);
+	};
+	useEffect(() => {
+		fetchCategories();
+	}, []);
 	return (
 		<section className="upload">
 			<div className="wrapper">
@@ -15,53 +54,63 @@ const UploadForm = ({ setOpen }) => {
 				</div>
 				<form>
 					<div className="input-group">
-						<input type="text" id="username" name="username"></input>
+						<input type="text" name="title" onChange={handleChange}></input>
 						<label>Product name</label>
 					</div>
 					<div className="input-group">
-						<input type="text" id="username" name="username"></input>
+						<input type="text" name="brand" onChange={handleChange}></input>
 						<label>Product brand</label>
 					</div>
-					<div class="input-group">
-						<input type="file" class="upload-image" />
+					<div className="input-group">
+						<input type="text" className="upload-image" name="image" onChange={handleChange} />
 						<label>Product image</label>
 					</div>
 					<div className="input-group">
-						<textarea type="text" id="username" name="username"></textarea>
+						<textarea type="text" name="description" onChange={handleChange}></textarea>
 						<label>Product description</label>
 					</div>
 					<div className="input-group">
-						<input type="text" id="username" name="username"></input>
+						<input type="text" name="purchase_date" onChange={handleChange}></input>
 						<label>Product purchase date</label>
 					</div>
 					<div className="row price-row">
 						<div className="col-6">
 							<div className="input-group">
-								<input type="text" id="firstName" name="first_name"></input>
+								<input type="text" name="original_price" onChange={handleChange}></input>
 								<label>Original price</label>
 							</div>
 						</div>
 						<div className="col-6">
 							<div className="input-group">
-								<input type="text" id="lastName" name="last_name"></input>
+								<input type="text" name="price" onChange={handleChange}></input>
 								<label>Initial price</label>
+							</div>
+						</div>
+						<div className="col-6">
+							<div className="input-group">
+								<input type="text" name="suggested_price" onChange={handleChange}></input>
+								<label>Suggested price</label>
 							</div>
 						</div>
 					</div>
 					<div className="input-group">
-						<input type="text" id="username" name="username"></input>
+						<input type="text" name="condition" onChange={handleChange}></input>
 						<label>Product condition</label>
 					</div>
 					<div className="input-group">
-						<select class="form-select" aria-label="Default select example">
-							<option selected>Category</option>
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Three</option>
+						<select className="form-select" name="category" onChange={handleChange} required>
+							<option>Select Category</option>
+							{categories.map((item) => (
+								<option key={item.categoryId} value={item.name}>
+									{item.name}
+								</option>
+							))}
 						</select>
 					</div>
 
-					<button className="btn btn-primary">Publish</button>
+					<button className="btn btn-primary" onClick={handleSubmit}>
+						Publish
+					</button>
 				</form>
 			</div>
 		</section>

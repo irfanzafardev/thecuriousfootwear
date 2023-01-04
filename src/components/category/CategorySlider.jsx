@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./categoryslider.css";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const CategorySlider = () => {
+	const [categories, setCategories] = useState([]);
+
+	const rootAPI = "https://thecuriousfootwear-server.vercel.app/api/category";
+	const fetchCategories = async () => {
+		const { data } = await axios.get(rootAPI + "/all");
+		setCategories(data);
+	};
+	useEffect(() => {
+		fetchCategories();
+	}, []);
 	function SampleNextArrow(props) {
 		const { className, style, onClick } = props;
 		return <div className={className} style={{ ...style, display: "block", background: "transparent" }} onClick={onClick} />;
@@ -49,30 +61,13 @@ const CategorySlider = () => {
 				<div className="col-12 col-lg-6">
 					<div className="slider ">
 						<Slider {...settings}>
-							<div className="item">
-								<div className="btn btn-outline-dark">Category</div>
-							</div>
-							<div className="item">
-								<div className="btn btn-outline-dark">Category</div>
-							</div>
-							<div className="item">
-								<div className="btn btn-outline-dark">Category</div>
-							</div>
-							<div className="item">
-								<div className="btn btn-outline-dark">Category</div>
-							</div>
-							<div className="item">
-								<div className="btn btn-outline-dark">Category</div>
-							</div>
-							<div className="item">
-								<div className="btn btn-outline-dark">Category</div>
-							</div>
-							<div className="item">
-								<div className="btn btn-outline-dark">Category</div>
-							</div>
-							<div className="item">
-								<div className="btn btn-outline-dark">Category</div>
-							</div>
+							{categories.map((item) => (
+								<div className="item" key={item.categoryId}>
+									<Link to={`/category?cat=${item.name}`} className="link">
+										<div className="btn btn-outline-dark">{item.name}</div>
+									</Link>
+								</div>
+							))}
 						</Slider>
 					</div>
 				</div>
