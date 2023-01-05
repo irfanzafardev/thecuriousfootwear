@@ -11,6 +11,15 @@ section.explore-post .container-fluid {
 	justify-content: space-between;
 }
 
+@media only screen and (max-width: 768px) {
+	section.explore-post .container-fluid {
+		width: 100%;
+		padding: 30px 20px 0 20px;
+		align-items: center;
+		justify-content: space-between;
+	}
+}
+
 section.explore-post .container-fluid .heading {
 	margin-bottom: 6px;
 	padding-bottom: 20px;

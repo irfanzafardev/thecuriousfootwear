@@ -11,6 +11,15 @@ section.daily-feedback .container-fluid {
 	justify-content: space-between;
 }
 
+@media only screen and (max-width: 768px) {
+	section.daily-feedback .container-fluid {
+		width: 100%;
+		padding: 20px 30px 0 20px;
+		align-items: center;
+		justify-content: space-between;
+	}
+}
+
 section.daily-feedback.container-fluid .heading {
 	margin-bottom: 20px;
 	padding-bottom: 20px;

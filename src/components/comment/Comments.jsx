@@ -18,7 +18,7 @@ const Comments = ({ user, postId }) => {
 	}, [postId]);
 	return (
 		<>
-			<CreateComment user={user} />
+			<CreateComment user={user} postId={postId} />
 			<Comment postId={postId} comments={comments} />
 		</>
 	);

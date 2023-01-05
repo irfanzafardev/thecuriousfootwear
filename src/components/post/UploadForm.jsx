@@ -24,8 +24,6 @@ const UploadForm = ({ setOpen }) => {
 		});
 	};
 
-	// console.log(inputs);
-
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		dispatch(createPost(inputs));

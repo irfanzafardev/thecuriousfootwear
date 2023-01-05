@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createComment } from "../../services/comment/commentSlice";
 import "./createcomment.css";
 
-const CreateComment = ({ user }) => {
+const CreateComment = ({ user, postId }) => {
+	// Create new comment
+	const [inputs, setInputs] = useState(0);
+	const dispatch = useDispatch();
+
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		setInputs((prev) => {
+			return { ...prev, [name]: value, postId: postId };
+		});
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		dispatch(createComment(inputs)).then(() => {
+			window.location.reload();
+		});
+	};
 	return (
 		<>
 			{user ? (
@@ -11,18 +30,17 @@ const CreateComment = ({ user }) => {
 					</div>
 					<div className="form-input">
 						<p>
-							{user.first_name}
-							{user.last_name}
+							{user.first_name} {user.last_name}
 						</p>
-						<input type="text" placeholder="Add a feedback..." />
-						<input type="number" className="currency" placeholder="" />
-						<button type="submit" className="btn btn-outline-dark" disabled>
+						<input type="text" placeholder="Add a feedback..." name="body" onChange={handleChange} />
+						<input type="number" className="currency" placeholder="Suggest a value..." name="suggestedPrice" onChange={handleChange} />
+						<button type="submit" className="btn btn-outline-dark" onClick={handleSubmit}>
 							Send
 						</button>
 					</div>
 				</div>
 			) : (
-				<div className="note">
+				<div className="message">
 					<h2>Please log in to give your feedback.</h2>
 				</div>
 			)}
