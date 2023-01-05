@@ -27,7 +27,18 @@ const ExplorePost = () => {
 		// fetchPostsById();
 	}, [isError, message, dispatch]);
 	if (isLoading) {
-		return <MiniSpinner />;
+		return (
+			<section className="explore-post">
+				<div className="container-fluid">
+					<div className="heading">
+						<h1>What's new</h1>
+					</div>
+					<div className="mt-5">
+						<MiniSpinner />;
+					</div>
+				</div>
+			</section>
+		);
 	}
 	return (
 		<section className="explore-post">
@@ -55,12 +66,12 @@ const ExplorePost = () => {
 									<div className="card">
 										<img src={post.image} className="card-img-top" alt="product" />
 										<div className="card-body">
-											<p className="post-category">Category</p>
+											{/* <p className="post-category">Category</p> */}
 											<h2 className="post-title">{post.title}</h2>
-											<p className="post-desc">{post.description}</p>
+											{/* <p className="post-desc">{post.description}</p> */}
 											<div className="price row">
 												<div className="col-8">
-													<p>Avg. Suggested Price</p>
+													<p>Most Suggested Price</p>
 												</div>
 												<div className="col-4">
 													<span>${post.suggested_price}</span>

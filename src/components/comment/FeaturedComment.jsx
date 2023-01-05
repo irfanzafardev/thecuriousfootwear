@@ -13,6 +13,10 @@ const FeaturedComment = () => {
 					<div className="col-12 col-lg-4">
 						<Link to={`post/`} style={{ textDecoration: "none" }}>
 							<div className="card">
+								<div className="dark-layer"></div>
+								<div className="message">
+									<p>Coming soon..</p>
+								</div>
 								<div className="card-body">
 									<div className="row">
 										<div className="col-4 product-img-wrapper">

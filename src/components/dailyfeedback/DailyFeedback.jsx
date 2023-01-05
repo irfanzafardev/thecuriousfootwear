@@ -11,6 +11,10 @@ const DailyFeedback = () => {
 				<div className="row mt-4">
 					<div className="col-3">
 						<div className="card">
+							<div className="dark-layer"></div>
+							<div className="message">
+								<p>Coming soon..</p>
+							</div>
 							<div className="card-body">
 								<div className="product-name">Shoe A</div>
 								<div className="comment-wrapper">

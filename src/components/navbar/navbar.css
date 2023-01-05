@@ -9,7 +9,7 @@ nav {
 	font-style: normal;
 	background-color: #fff;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
-	z-index: 1;
+	z-index: 3;
 }
 
 @media only screen and (max-width: 768px) {
