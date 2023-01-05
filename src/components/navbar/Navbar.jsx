@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import { GoThreeBars } from "react-icons/go";
 import "./navbar.css";
@@ -7,14 +7,17 @@ import { useSelector } from "react-redux";
 import UploadPostPage from "../../pages/post/UploadPostPage";
 
 const Navbar = () => {
-	const [isSearchActive, setSearchActive] = useState(false);
-	const toggleSearchClass = () => {
-		setSearchActive(!isSearchActive);
-	};
+	const { user } = useSelector((state) => state.auth);
 
 	const [open, setOpen] = useState(false);
-	// const [search, setSearch] = useState("");
-	const { user } = useSelector((state) => state.auth);
+	// Search by query
+	const [search, setSearch] = useState("");
+	const navigate = useNavigate();
+	const handleSearch = (e) => {
+		if (e.key === "Enter") {
+			navigate(`/search?q=${search}`);
+		}
+	};
 
 	return (
 		<>
@@ -28,9 +31,9 @@ const Navbar = () => {
 					</Link>
 					<div className="search d-none d-lg-block">
 						<div className="search-box">
-							<input type="text" placeholder="Search" />
+							<input type="text" placeholder="Search" onChange={(e) => setSearch(e.target.value)} onKeyPress={handleSearch} />
 							<div className="item">
-								<div className="search-icon" onClick={toggleSearchClass}>
+								<div className="search-icon">
 									<BiSearch size="1rem" color="#666666" />
 								</div>
 							</div>

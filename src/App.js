@@ -15,6 +15,7 @@ import CategoryPage from './pages/category/CategoryPage.jsx';
 import UploadPostPage from './pages/post/UploadPostPage.jsx';
 import ProfilePage from './pages/profile/ProfilePage.jsx';
 import AboutPage from './pages/about/AboutPage.jsx';
+import SearchPage from './pages/search/SearchPage.jsx';
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
             <Route path="upload" element={<UploadPostPage />} />
           </Route>
           <Route path="category" element={<CategoryPage />} />
+          <Route path="search" element={<SearchPage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="profile">
             <Route path="me" element={<ProfilePage />} />
