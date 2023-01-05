@@ -2,7 +2,7 @@ nav {
 	display: flex;
 	position: fixed;
 	top: 0;
-	width: 100%;
+	width: 100vw;
 	height: 60px;
 	font-family: "ESAllianz-Regular", sans-serif;
 	font-weight: 400;
@@ -10,11 +10,26 @@ nav {
 	background-color: #fff;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
 	z-index: 1;
-	/* border-bottom: 1px solid #000 !important; */
+}
+
+@media only screen and (max-width: 768px) {
+	nav {
+		display: flex;
+		position: fixed;
+		top: 0;
+		width: 100% !important;
+		height: 60px;
+		font-family: "ESAllianz-Regular", sans-serif;
+		font-weight: 400;
+		font-style: normal;
+		background-color: #fff;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+		z-index: 1;
+	}
 }
 
 nav .container-fluid {
-	width: 100%;
+	width: 100vw;
 	padding: 0 60px;
 	display: flex;
 	align-items: center;

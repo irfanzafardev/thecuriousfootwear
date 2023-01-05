@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-// import { useSelector } from "react-redux";
+import moment from "moment";
 import Comments from "../comment/Comments";
 import MiniSpinner from "../loading/MiniSpinner";
 import "./singlepost.css";
@@ -37,8 +37,6 @@ const SinglePost = () => {
 	}, [path, dispatch]);
 
 	// Like and dislike post
-	// const { user } = useSelector((state) => state.auth);
-	// const { post } = useSelector((state) => state.auth);
 	const handleLike = async () => {
 		// await axios.put(`/users/like/${currentVideo._id}`);
 		// dispatch(like(currentUser._id));
@@ -91,7 +89,6 @@ const SinglePost = () => {
 					</div>
 				)}
 			</div>
-
 			<div className="main">
 				{post ? (
 					<>
@@ -112,24 +109,32 @@ const SinglePost = () => {
 												<div className="username">
 													{owner[0].first_name} {owner[0].last_name}
 												</div>
-												<div className="created-at">A moment ago</div>
+												<div className="created-at">{moment(`${post.createdAt}`, "YYYYMMDD").fromNow()}</div>
 											</div>
 										</div>
-										<div className="follow">
-											<div className="follow-user">Follow</div>
-										</div>
+										{user ? (
+											<div className="follow">
+												<div className="follow-user">Follow</div>
+											</div>
+										) : (
+											""
+										)}
 									</div>
-									<div className="post-option">
-										<div className="like-post">
-											<button className="like" onClick={handleLike}>
-												{posts.like?.includes(user._id) ? <AiFillLike size="1.4em" /> : <AiOutlineLike size="1.4em" />} {posts.like?.length}
-											</button>
-											<button onClick={handleDislike}>
-												{posts.dislike?.includes(user._id) ? <AiFillDislike size="1.4em" /> : <AiOutlineDislike size="1.4em" />} {posts.dislike?.length}
-											</button>
+									{user ? (
+										<div className="post-option">
+											<div className="like-post">
+												<button className="like" onClick={handleLike}>
+													{posts.like?.includes(user._id) ? <AiFillLike size="1.4em" /> : <AiOutlineLike size="1.4em" />} {posts.like?.length}
+												</button>
+												<button onClick={handleDislike}>
+													{posts.dislike?.includes(user._id) ? <AiFillDislike size="1.4em" /> : <AiOutlineDislike size="1.4em" />} {posts.dislike?.length}
+												</button>
+											</div>
+											<div className="share-post">Share</div>
 										</div>
-										<div className="share-post">Share</div>
-									</div>
+									) : (
+										<p>Please log in</p>
+									)}
 								</div>
 								<div className="product-desc">
 									<h2>Description</h2>
@@ -149,7 +154,7 @@ const SinglePost = () => {
 							<h1>Feedback</h1>
 						</div>
 						{post ? (
-							<Comments postId={post.id} user={user} />
+							<Comments postId={post._id} user={user} />
 						) : (
 							<div className="comment-spinner-container">
 								<MiniSpinner />

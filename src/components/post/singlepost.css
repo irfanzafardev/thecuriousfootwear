@@ -184,7 +184,8 @@ section.single-post .sidebar {
 	padding-top: 60px;
 	top: 0;
 	right: 0;
-	z-index: 1;
+	z-index: 0;
+	background-color: #fff;
 	border-left: 1px solid #ebedee;
 }
 

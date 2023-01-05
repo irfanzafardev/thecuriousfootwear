@@ -1,30 +1,42 @@
+import moment from "moment";
 import React from "react";
 import { AiOutlineLike } from "react-icons/ai";
 
 import "./comment.css";
+import UserInfo from "./UserInfo";
 
-const Comment = () => {
+const Comment = ({ comments }) => {
 	return (
-		<div className="comment">
-			<div className="user-profile">
-				<img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" />
-			</div>
-			<div className="comment-detail">
+		<>
+			{comments.length > 0 ? (
 				<div>
-					<div className="username">Username</div>
-					<div className="date">
-						A moment ago | <span>1 like</span>
-					</div>
-					<div className="comment-body">The comment body</div>
-					<div className="suggested-price">IDR1.400.000</div>
+					{comments.map((comment) => (
+						<div className="comment" key={comment.id}>
+							<div className="user-profile">
+								<img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" alt="" />
+							</div>
+							<div className="comment-detail">
+								<div>
+									<UserInfo commentId={comment.id} />
+									<div className="date">
+										{moment(`${comment.createdAt}`, "YYYYMMDD").fromNow()} | <span>{comment.likeCount} like</span>
+									</div>
+									<div className="comment-body">{comment.body}</div>
+									<div className="suggested-price">IDR{comment.price}</div>
+								</div>
+								<div>
+									<button className="like">
+										<AiOutlineLike size="1.4em" />
+									</button>
+								</div>
+							</div>
+						</div>
+					))}
 				</div>
-				<div>
-					<button className="like">
-						<AiOutlineLike size="1.4em" />
-					</button>
-				</div>
-			</div>
-		</div>
+			) : (
+				<p>No comment at the moment</p>
+			)}
+		</>
 	);
 };
 
