@@ -97,34 +97,37 @@ const Navbar = () => {
 							<div className="nav-brand">FOOTWARE</div>
 							<button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
-						<div className="modal-body">
-							<div className="modal-line">
-								<div className="modal-item">Profile</div>
+						{user ? (
+							<div className="modal-body">
+								<div className="modal-line">
+									<div className="modal-item">Hi, {user.first_name}</div>
+								</div>
+								<div className="modal-line">
+									<div className="modal-item">
+										<Link to="/post/create" className="link">
+											Share your footwear
+										</Link>
+									</div>
+								</div>
+								<div className="modal-btn">
+									<div className="item-btn">
+										<button type="button" className="btn">
+											Log out
+										</button>
+									</div>
+								</div>
 							</div>
-							<div className="modal-btn">
-								<div className="item-btn">
-									<Link to="/post/create" className="link">
+						) : (
+							<div className="modal-body">
+								<div className="modal-btn">
+									<Link to="/login" className="link">
 										<button type="button" className="btn" data-bs-dismiss="modal" aria-label="Close">
-											Create post
+											Sign in
 										</button>
 									</Link>
 								</div>
 							</div>
-							<div className="modal-btn">
-								<div className="item-btn">
-									<button type="button" className="btn">
-										Log out
-									</button>
-								</div>
-							</div>
-							<div className="modal-btn">
-								<Link to="/login" className="link">
-									<button type="button" className="btn" data-bs-dismiss="modal" aria-label="Close">
-										Sign in
-									</button>
-								</Link>
-							</div>
-						</div>
+						)}
 					</div>
 				</div>
 			</div>

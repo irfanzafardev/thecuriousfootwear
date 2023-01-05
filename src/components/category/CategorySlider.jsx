@@ -49,7 +49,7 @@ const CategorySlider = () => {
 			{
 				breakpoint: 480,
 				settings: {
-					slidesToShow: 2,
+					slidesToShow: 1,
 					slidesToScroll: 1,
 				},
 			},
@@ -71,8 +71,8 @@ const CategorySlider = () => {
 						</Slider>
 					</div>
 				</div>
-				<div className="col-6">
-					<div className="d-flex justify-content-end">
+				<div className="col-12 col-lg-12">
+					<div className="d-flex justify-content-center justify-content-lg-end">
 						<button className="btn btn-outline-dark">See all</button>
 					</div>
 				</div>

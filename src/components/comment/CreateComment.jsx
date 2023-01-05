@@ -11,12 +11,12 @@ const CreateComment = ({ user }) => {
 					</div>
 					<div className="form-input">
 						<p>
-							{user.first_name} {""}
+							{user.first_name}
 							{user.last_name}
 						</p>
 						<input type="text" placeholder="Add a feedback..." />
 						<input type="number" className="currency" placeholder="" />
-						<button type="submit" className="btn btn-outline-dark">
+						<button type="submit" className="btn btn-outline-dark" disabled>
 							Send
 						</button>
 					</div>

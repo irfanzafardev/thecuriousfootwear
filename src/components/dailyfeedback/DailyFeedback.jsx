@@ -9,7 +9,7 @@ const DailyFeedback = () => {
 					<h1>Today's feedback</h1>
 				</div>
 				<div className="row mt-4">
-					<div className="col-3">
+					<div className="col-12 col-lg-3">
 						<div className="card">
 							<div className="dark-layer"></div>
 							<div className="message">
