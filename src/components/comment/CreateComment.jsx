@@ -17,9 +17,10 @@ const CreateComment = ({ user, postId }) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		dispatch(createComment(inputs)).then(() => {
-			window.location.reload();
-		});
+		// dispatch(createComment(inputs)).then(() => {
+		// 	window.location.reload();
+		// });
+		dispatch(createComment(inputs));
 	};
 	return (
 		<>
