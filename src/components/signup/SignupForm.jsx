@@ -48,7 +48,7 @@ const SignupForm = () => {
 	const hanldeSubmit = (e) => {
 		e.preventDefault();
 		if (password !== confirmPassword) {
-			alert("salah password");
+			alert("Salah password");
 		} else {
 			const userData = {
 				first_name,
@@ -72,7 +72,7 @@ const SignupForm = () => {
 			<section className="signup">
 				<div className="container-fluid">
 					<div className="row signup-row">
-						<div className="col-12 col-lg-6 welcome-column">
+						<div className="col-6 d-none d-lg-flex welcome-column">
 							<div className="heading">
 								<h1>
 									Footware <span className="divider"></span> <span className="text"> The Curious Footwear</span>

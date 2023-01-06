@@ -54,7 +54,7 @@ const LoginForm = () => {
 			<section className="login">
 				<div className="container-fluid">
 					<div className="row">
-						<div className="col-12 col-lg-6 welcome-column">
+						<div className="col-6 d-none d-lg-flex welcome-column">
 							<div className="heading">
 								<h1>
 									Footware <span className="divider"></span> <span className="text"> The Curious Footwear</span>

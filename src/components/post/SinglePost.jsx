@@ -7,7 +7,7 @@ import "./singlepost.css";
 
 import { AiOutlineLike, AiFillLike } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { getCurrentPost, likePost } from "../../services/post/postSlice";
+import { getCurrentPost, likePost, unlikePost } from "../../services/post/postSlice";
 
 const SinglePost = () => {
 	const path = useLocation().pathname.split("/")[2];
@@ -44,6 +44,11 @@ const SinglePost = () => {
 	// Like a post
 	const handleLike = async () => {
 		dispatch(likePost(post._id));
+	};
+
+	// Unlike a post
+	const handleUnlike = async () => {
+		dispatch(unlikePost(post._id));
 	};
 	return (
 		<section className="single-post">
@@ -123,12 +128,17 @@ const SinglePost = () => {
 									{user ? (
 										<div className="post-option">
 											<div className="like-post">
-												<button className="like" onClick={handleLike}>
-													{posts.like?.includes(user?.userId.toString()) ? <AiFillLike size="1.4em" /> : <AiOutlineLike size="1.4em" />} {posts.like?.length}
-												</button>
-												{/* <button onClick={handleDislike}>
-													{posts.dislike?.includes(user.id) ? <AiFillDislike size="1.4em" /> : <AiOutlineDislike size="1.4em" />} {posts.dislike?.length}
-												</button> */}
+												{posts.like?.includes(user?.userId.toString()) ? (
+													<button className="like" onClick={handleUnlike}>
+														<AiFillLike size="1.4em" />
+														{posts.like?.length}
+													</button>
+												) : (
+													<button className="like" onClick={handleLike}>
+														<AiOutlineLike size="1.4em" />
+														{posts.like?.length}
+													</button>
+												)}
 											</div>
 											<div className="share-post">Share</div>
 										</div>

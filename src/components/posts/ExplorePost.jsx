@@ -11,6 +11,11 @@ const ExplorePost = () => {
 	const dispatch = useDispatch();
 	const { posts, isLoading, isError, message } = useSelector((state) => state.post);
 
+	// Number formatter
+	function kFormatter(num) {
+		return Math.abs(num) > 999 ? Math.sign(num) * (Math.abs(num) / 1000).toFixed(1) + "K" : Math.sign(num) * Math.abs(num);
+	}
+
 	// const fetchPostsById = async () => {
 	// 	const { data } = await axios.get(rootAPI + "/63b2eb39c2a98d0be03bd693");
 	// 	setName(data.title);
@@ -71,10 +76,10 @@ const ExplorePost = () => {
 											{/* <p className="post-desc">{post.description}</p> */}
 											<div className="price row">
 												<div className="col-8">
-													<p>Most Suggested Price</p>
+													<p>Suggested Price</p>
 												</div>
 												<div className="col-4">
-													<span>${post.suggested_price}</span>
+													<span>{kFormatter(post.suggested_price)}</span>
 												</div>
 											</div>
 										</div>

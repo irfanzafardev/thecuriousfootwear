@@ -3,6 +3,7 @@ import axios from "axios"
 const POST_BASE_URL = "https://thecuriousfootwear-server.vercel.app/api/post/"
 const ALL_POST_BASE_URL = "https://thecuriousfootwear-server.vercel.app/api/post/all"
 const LIKE_BASE_URL = "https://thecuriousfootwear-server.vercel.app/api/user/like/"
+const UNLIKE_BASE_URL = "https://thecuriousfootwear-server.vercel.app/api/user/dislike/"
 
 // Get all post
 const getAllPost = async () => {
@@ -11,7 +12,7 @@ const getAllPost = async () => {
   return response.data
 }
 
-// Get all post
+// Get current post
 const getCurrentPost = async (postId) => {
   const response = await axios.get(POST_BASE_URL + postId)
 
@@ -33,14 +34,35 @@ const createPost = async (postData, token) => {
 
 // Like post
 const likePost = async (postId, token) => {
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  }
+  // const config = {
+  //   headers: {
+  //     Authorization: `Bearer ${token}`,
+  //   },
+  // }
 
-  const response = await axios.put(LIKE_BASE_URL + postId, config)
+  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+  const response = await axios.put(LIKE_BASE_URL + postId)
+  return response.data
 
+  // const response = await axios.put(LIKE_BASE_URL + postId, config)
+
+  // return response.data
+}
+
+// Unlike post
+const unlikePost = async (postId, token) => {
+  // const config = {
+  //   headers: {
+  //     Authorization: `Bearer ${token}`,
+  //   },
+  // }
+
+
+  // const response = await axios.put(LIKE_BASE_URL + postId, config)
+
+  // return response.data
+  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+  const response = await axios.put(UNLIKE_BASE_URL + postId)
   return response.data
 }
 
@@ -48,7 +70,8 @@ const postService = {
   getAllPost,
   getCurrentPost,
   createPost,
-  likePost
+  likePost,
+  unlikePost
 }
 
 export default postService

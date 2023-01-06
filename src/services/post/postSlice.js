@@ -83,13 +83,13 @@ export const likePost = createAsyncThunk(
   }
 )
 
-// Dislike post
-export const dislikePost = createAsyncThunk(
-  'post/dislike',
+// Unlike post
+export const unlikePost = createAsyncThunk(
+  'post/unlike',
   async (postId, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token
-      return await postService.dislikePost(postId, token)
+      return await postService.unlikePost(postId, token)
     } catch (error) {
       const message =
         (error.response &&
@@ -161,11 +161,11 @@ export const postSlice = createSlice({
           );
         }
       })
-      .addCase(dislikePost.fulfilled, (state, action) => {
-        if (!state.posts.dislikes.includes(action.payload)) {
-          state.posts.dislikes.push(action.payload);
-          state.posts.likes.splice(
-            state.posts.likes.findIndex(
+      .addCase(unlikePost.fulfilled, (state, action) => {
+        if (!state.posts.dislike.includes(action.payload)) {
+          state.posts.dislike.push(action.payload);
+          state.posts.like.splice(
+            state.posts.like.findIndex(
               (userId) => userId === action.payload
             ),
             1

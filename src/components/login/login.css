@@ -13,7 +13,6 @@ section.login .container-fluid .row {
 }
 
 section.login .container-fluid .row .welcome-column {
-	display: flex;
 	align-items: center;
 	justify-content: center;
 	padding-inline: 0px;
