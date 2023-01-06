@@ -151,10 +151,10 @@ export const postSlice = createSlice({
         state.message = action.payload
       })
       .addCase(likePost.fulfilled, (state, action) => {
-        if (!state.posts.likes.includes(action.payload)) {
-          state.posts.likes.push(action.payload);
-          state.posts.dislikes.splice(
-            state.posts.dislikes.findIndex(
+        if (!state.posts.like.includes(action.payload)) {
+          state.posts.like.push(action.payload);
+          state.posts.dislike.splice(
+            state.posts.dislike.findIndex(
               (userId) => userId === action.payload
             ),
             1

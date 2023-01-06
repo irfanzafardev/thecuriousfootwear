@@ -3,7 +3,6 @@ import axios from "axios"
 const POST_BASE_URL = "https://thecuriousfootwear-server.vercel.app/api/post/"
 const ALL_POST_BASE_URL = "https://thecuriousfootwear-server.vercel.app/api/post/all"
 const LIKE_BASE_URL = "https://thecuriousfootwear-server.vercel.app/api/user/like/"
-const DISLIKE_BASE_URL = "https://thecuriousfootwear-server.vercel.app/api/user/dislike/"
 
 // Get all post
 const getAllPost = async () => {
@@ -45,25 +44,11 @@ const likePost = async (postId, token) => {
   return response.data
 }
 
-// Disike post
-const dislikePost = async (postId, token) => {
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  }
-
-  const response = await axios.put(DISLIKE_BASE_URL + postId, config)
-
-  return response.data
-}
-
 const postService = {
   getAllPost,
   getCurrentPost,
   createPost,
-  likePost,
-  dislikePost
+  likePost
 }
 
 export default postService

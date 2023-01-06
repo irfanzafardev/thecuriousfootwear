@@ -118,7 +118,8 @@ section.single-post .main .container-fluid .post-detail .post-option .like-post 
 }
 
 section.single-post .main .container-fluid .post-detail .post-option .like-post button.like {
-	border-right: 1px solid #000;
+	/* border-right: 1px solid #000; */
+	border-right: none;
 }
 
 section.single-post .main .container-fluid .post-detail .post-option .share-post {

@@ -5,9 +5,9 @@ import Comments from "../comment/Comments";
 import MiniSpinner from "../loading/MiniSpinner";
 import "./singlepost.css";
 
-import { AiOutlineLike, AiOutlineDislike, AiFillDislike, AiFillLike } from "react-icons/ai";
+import { AiOutlineLike, AiFillLike } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { getCurrentPost } from "../../services/post/postSlice";
+import { getCurrentPost, likePost } from "../../services/post/postSlice";
 
 const SinglePost = () => {
 	const path = useLocation().pathname.split("/")[2];
@@ -41,15 +41,9 @@ const SinglePost = () => {
 		return new Date(dateString).toLocaleDateString(undefined, options);
 	};
 
-	// Like and dislike post
+	// Like a post
 	const handleLike = async () => {
-		await axios.put(rootAPI + `/user/like/${post._id}`);
-		// dispatch(like(currentUser._id));
-	};
-
-	const handleDislike = async () => {
-		// await axios.put(`/users/dislike/${currentVideo._id}`);
-		// dispatch(dislike(currentUser._id));
+		dispatch(likePost(post._id));
 	};
 	return (
 		<section className="single-post">
@@ -130,11 +124,11 @@ const SinglePost = () => {
 										<div className="post-option">
 											<div className="like-post">
 												<button className="like" onClick={handleLike}>
-													{posts.like?.includes(user._id) ? <AiFillLike size="1.4em" /> : <AiOutlineLike size="1.4em" />} {posts.like?.length}
+													{posts.like?.includes(user?.userId.toString()) ? <AiFillLike size="1.4em" /> : <AiOutlineLike size="1.4em" />} {posts.like?.length}
 												</button>
-												<button onClick={handleDislike}>
-													{posts.dislike?.includes(user._id) ? <AiFillDislike size="1.4em" /> : <AiOutlineDislike size="1.4em" />} {posts.dislike?.length}
-												</button>
+												{/* <button onClick={handleDislike}>
+													{posts.dislike?.includes(user.id) ? <AiFillDislike size="1.4em" /> : <AiOutlineDislike size="1.4em" />} {posts.dislike?.length}
+												</button> */}
 											</div>
 											<div className="share-post">Share</div>
 										</div>

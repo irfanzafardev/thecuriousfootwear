@@ -28,42 +28,60 @@ export const createComment = createAsyncThunk(
   }
 )
 
-// Fetch all comment
-// export const getAllPost = createAsyncThunk(
-//   'post/getAll',
-//   async (_, thunkAPI) => {
-//     try {
-//       return await postService.getAllPost()
-//     } catch (error) {
-//       const message =
-//         (error.response &&
-//           error.response.data &&
-//           error.response.data.message) ||
-//         error.message ||
-//         error.toString()
-//       return thunkAPI.rejectWithValue(message)
-//     }
-//   }
-// )
+// Fetch all comment by postId
+export const getAllCommentByPostId = createAsyncThunk(
+  'comment/getAll',
+  async (postId, thunkAPI) => {
+    try {
+      return await commentService.getAllCommentByPostId(postId)
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
+// Fetch a comment
+export const getCommentById = createAsyncThunk(
+  'comment/get',
+  async (commentId, thunkAPI) => {
+    try {
+      return await commentService.getCommentById(commentId)
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
 
 // Like comment
-// export const likePost = createAsyncThunk(
-//   'post/like',
-//   async (postId, thunkAPI) => {
-//     try {
-//       const token = thunkAPI.getState().auth.user.token
-//       return await postService.likePost(postId, token)
-//     } catch (error) {
-//       const message =
-//         (error.response &&
-//           error.response.data &&
-//           error.response.data.message) ||
-//         error.message ||
-//         error.toString()
-//       return thunkAPI.rejectWithValue(message)
-//     }
-//   }
-// )
+export const likeComment = createAsyncThunk(
+  'comment/like',
+  async (commentId, thunkAPI) => {
+    try {
+      const token = thunkAPI.getState().auth.user.token
+      return await commentService.likePost(commentId, token)
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
 
 export const commentSlice = createSlice({
   name: 'comment',
@@ -82,6 +100,19 @@ export const commentSlice = createSlice({
         state.comments.push(action.payload)
       })
       .addCase(createComment.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
+      .addCase(getAllCommentByPostId.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(getAllCommentByPostId.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.comments = action.payload
+      })
+      .addCase(getAllCommentByPostId.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
