@@ -11,7 +11,7 @@ const CreateComment = ({ user, postId }) => {
 	const handleChange = (e) => {
 		const { name, value } = e.target;
 		setInputs((prev) => {
-			return { ...prev, [name]: value, postId: postId };
+			return { ...prev, [name]: value, postId: postId, createdAt: new Date().toLocaleString() + "" };
 		});
 	};
 

@@ -20,7 +20,7 @@ const UploadForm = ({ setOpen }) => {
 	const handleChange = (e) => {
 		const { name, value } = e.target;
 		setInputs((prev) => {
-			return { ...prev, [name]: value, username: user.username };
+			return { ...prev, [name]: value, username: user.username, createdAt: new Date().toLocaleString() + "" };
 		});
 	};
 

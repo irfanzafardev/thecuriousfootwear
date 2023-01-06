@@ -1,4 +1,3 @@
-import moment from "moment";
 import React from "react";
 import { AiOutlineLike } from "react-icons/ai";
 
@@ -6,6 +5,10 @@ import "./comment.css";
 import UserInfo from "./UserInfo";
 
 const Comment = ({ comments }) => {
+	const formatDate = (dateString) => {
+		const options = { year: "numeric", month: "long", day: "numeric" };
+		return new Date(dateString).toLocaleDateString(undefined, options);
+	};
 	return (
 		<>
 			{comments.length > 0 ? (
@@ -19,7 +22,9 @@ const Comment = ({ comments }) => {
 								<div>
 									<UserInfo commentId={comment.id} />
 									<div className="date">
-										{moment(`${comment.createdAt}`, "YYYYMMDD").fromNow()} | <span>{comment.likeCount} like</span>
+										{/* {moment(`${comment.createdAt}`, "YYYYMMDD").fromNow()} | <span>{comment.likeCount} like</span> */}
+										{formatDate(`${comment.createdAt}`)} | <span>{comment.likeCount} like</span>
+										{/* {comment.createdAt} */}
 									</div>
 									<div className="comment-body">{comment.body}</div>
 									<div className="suggested-price">IDR{comment.price}</div>

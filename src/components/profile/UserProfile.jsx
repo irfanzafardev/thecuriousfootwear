@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { logout, reset } from "../../services/auth/authSlice";
 import { useNavigate } from "react-router-dom";
@@ -18,7 +18,7 @@ const UserProfile = () => {
 	};
 	return (
 		<>
-			{/* <section className="user-profile">
+			<section className="user-profile">
 				<div className="container-fluid">
 					<div className="heading">
 						<h1>Profile</h1>
@@ -27,12 +27,7 @@ const UserProfile = () => {
 						Log out
 					</button>
 				</div>
-			</section> */}
-			<Fragment>
-				<Section>
-					<Simple />
-				</Section>
-			</Fragment>
+			</section>
 		</>
 	);
 };

@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import moment from "moment";
 import Comments from "../comment/Comments";
 import MiniSpinner from "../loading/MiniSpinner";
 import "./singlepost.css";
@@ -36,9 +35,15 @@ const SinglePost = () => {
 		fetchOwner();
 	}, [path, dispatch]);
 
+	// Format date
+	const formatDate = (dateString) => {
+		const options = { year: "numeric", month: "long", day: "numeric" };
+		return new Date(dateString).toLocaleDateString(undefined, options);
+	};
+
 	// Like and dislike post
 	const handleLike = async () => {
-		// await axios.put(`/users/like/${currentVideo._id}`);
+		await axios.put(rootAPI + `/user/like/${post._id}`);
 		// dispatch(like(currentUser._id));
 	};
 
@@ -109,7 +114,8 @@ const SinglePost = () => {
 												<div className="username">
 													{owner[0].first_name} {owner[0].last_name}
 												</div>
-												<div className="created-at">{moment(`${post.createdAt}`, "YYYYMMDD").fromNow()}</div>
+												{/* <div className="created-at">{moment(`${post.createdAt}`, "YYYYMMDD").fromNow()}</div> */}
+												<div className="created-at">{formatDate(`${post.createdAt}`)}</div>
 											</div>
 										</div>
 										{user ? (
