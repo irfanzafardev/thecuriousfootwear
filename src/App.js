@@ -6,8 +6,8 @@ import {
 } from "react-router-dom";
 
 import LandingPage from "./pages/landing/LandingPage.jsx";
-import SignInPage from './pages/auth/SignInPage';
-import SignUpPage from './pages/auth/SignUpPage';
+import SignInPage from './pages/auth/SignInPage.jsx';
+import SignUpPage from './pages/auth/SignUpPage.jsx';
 import SinglePostPage from './pages/post/SinglePostPage.jsx';
 import CategoryPage from './pages/category/CategoryPage.jsx';
 import ProfilePage from './pages/profile/ProfilePage.jsx';
