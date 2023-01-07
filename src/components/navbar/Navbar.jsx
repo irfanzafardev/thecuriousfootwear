@@ -26,6 +26,7 @@ const Navbar = () => {
 					<Link to="/" className="link">
 						<div className="nav-brand">
 							{/* <p>THE CURIOUS FOOTWEAR</p> */}
+							{/* <p>THE CURIOUS FOOTWEAR</p> */}
 							<p>FOOTWARE</p>
 						</div>
 					</Link>
