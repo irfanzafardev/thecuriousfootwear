@@ -46,6 +46,7 @@ section.category-slider .slider .item .category-item {
 .react-multiple-carousel__arrow--right {
 	margin-right: -36px;
 	z-index: 2;
+	background-color: transparent !important;
 }
 
 @media only screen and (max-width: 768px) {
@@ -62,6 +63,13 @@ section.category-slider .slider .item .category-item {
 .react-multiple-carousel__arrow--left {
 	margin-left: -36px;
 	z-index: 2;
+}
+
+@media only screen and (max-width: 768px) {
+	.react-multiple-carousel__arrow--left {
+		margin-left: -26px;
+		z-index: 2;
+	}
 }
 
 .react-multiple-carousel__arrow--left::before {

@@ -1,12 +1,14 @@
+// import axios from "axios";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createComment } from "../../services/comment/commentSlice";
 import "./createcomment.css";
 
-const CreateComment = ({ user, postId }) => {
+const CreateComment = ({ user, postId, setComments }) => {
 	// Create new comment
 	const [inputs, setInputs] = useState(0);
 	const dispatch = useDispatch();
+	// const rootAPI = "https://thecuriousfootwear-server.vercel.app/api/";
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -15,12 +17,16 @@ const CreateComment = ({ user, postId }) => {
 		});
 	};
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
+		dispatch(createComment(inputs)).then(() => {
+			window.location.reload();
+		});
 		// dispatch(createComment(inputs)).then(() => {
-		// 	window.location.reload();
+		// 	const commentRes = axios.get(rootAPI + `comment/getCommentsByPostId/${postId}`).then(() => {
+		// 		setComments(commentRes.data);
+		// 	});
 		// });
-		dispatch(createComment(inputs));
 	};
 	return (
 		<>

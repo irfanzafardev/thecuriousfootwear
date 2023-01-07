@@ -73,32 +73,6 @@ export const singleCommentSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // .addCase(createComment.pending, (state) => {
-      //   state.isLoading = true
-      // })
-      // .addCase(createComment.fulfilled, (state, action) => {
-      //   state.isLoading = false
-      //   state.isSuccess = true
-      //   state.comments.push(action.payload)
-      // })
-      // .addCase(createComment.rejected, (state, action) => {
-      //   state.isLoading = false
-      //   state.isError = true
-      //   state.message = action.payload
-      // })
-      // .addCase(getAllCommentByPostId.pending, (state) => {
-      //   state.isLoading = true
-      // })
-      // .addCase(getAllCommentByPostId.fulfilled, (state, action) => {
-      //   state.isLoading = false
-      //   state.isSuccess = true
-      //   state.comments = action.payload
-      // })
-      // .addCase(getAllCommentByPostId.rejected, (state, action) => {
-      //   state.isLoading = false
-      //   state.isError = true
-      //   state.message = action.payload
-      // })
       .addCase(getCommentById.pending, (state) => {
         state.isLoading = true
       })
@@ -114,6 +88,7 @@ export const singleCommentSlice = createSlice({
       })
       .addCase(likeComment.fulfilled, (state, action) => {
         if (!state.currentComment.like.includes(action.payload)) {
+          state.currentComment.like.push(action.payload);
           state.currentComment.like.push(action.payload);
           state.currentComment.dislike.splice(
             state.currentComment.dislike.findIndex(

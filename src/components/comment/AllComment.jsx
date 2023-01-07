@@ -15,7 +15,7 @@ const AllComment = ({ comments }) => {
 
 	return (
 		<>
-			{comments.length > 0 ? (
+			{comments?.length > 0 ? (
 				<div>
 					{comments.map((comment) => (
 						<Comment comment={comment} key={comment.id} />

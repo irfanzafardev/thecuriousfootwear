@@ -46,7 +46,7 @@ const ExplorePost = () => {
 		);
 	}
 	return (
-		<section className="explore-post">
+		<section className="explore-post mb-5">
 			<div className="container-fluid">
 				<div className="heading">
 					<h1>What's new</h1>

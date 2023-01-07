@@ -5,7 +5,7 @@ import Comments from "../comment/Comments";
 import MiniSpinner from "../loading/MiniSpinner";
 import "./singlepost.css";
 
-import { AiOutlineLike, AiFillLike } from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentPost, likePost, unlikePost } from "../../services/post/postSlice";
 
@@ -127,18 +127,44 @@ const SinglePost = () => {
 									</div>
 									{user ? (
 										<div className="post-option">
+											{posts.like?.length}
 											<div className="like-post">
 												{posts.like?.includes(user?.userId.toString()) ? (
 													<button className="like" onClick={handleUnlike}>
-														<AiFillLike size="1.4em" />
-														{posts.like?.length}
+														<AiFillHeart size="1.4em" />
 													</button>
 												) : (
 													<button className="like" onClick={handleLike}>
-														<AiOutlineLike size="1.4em" />
-														{posts.like?.length}
+														<AiOutlineHeart size="1.4em" />
 													</button>
 												)}
+
+												{/* <button className="like" onClick={handleLike}>
+													{posts.like?.includes(user?.userId.toString()) ? (
+														<>
+															<AiFillLike size="1.4em" />
+															{posts.like?.length}
+														</>
+													) : (
+														<>
+															<AiOutlineLike size="1.4em" />
+															{posts.like?.length}
+														</>
+													)}
+												</button>
+												<button className="like" onClick={handleUnlike}>
+													{posts.dislike?.includes(user?.userId.toString()) ? (
+														<>
+															<AiFillDislike size="1.4em" />
+															{posts.dislike?.length}
+														</>
+													) : (
+														<>
+															<AiOutlineDislike size="1.4em" />
+															{posts.dislike?.length}
+														</>
+													)}
+												</button> */}
 											</div>
 											<div className="share-post">Share</div>
 										</div>

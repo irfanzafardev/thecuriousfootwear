@@ -2,8 +2,11 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { createPost } from "../../services/post/postSlice";
+
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import app from "../../firebase";
 
 import "./uploadform.css";
 
@@ -13,9 +16,48 @@ const UploadForm = ({ setOpen }) => {
 
 	// Create new post
 	const [inputs, setInputs] = useState(0);
+	const [img, setImg] = useState(undefined);
+	const [imgPerc, setImgPerc] = useState(0);
 
 	const dispatch = useDispatch();
-	const navigate = useNavigate();
+	// const navigate = useNavigate();
+
+	const uploadFile = (file, urlType) => {
+		const storage = getStorage(app);
+		const fileName = new Date().getTime() + file.name;
+		const storageRef = ref(storage, fileName);
+		const uploadTask = uploadBytesResumable(storageRef, file);
+
+		uploadTask.on(
+			"state_changed",
+			(snapshot) => {
+				const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+				setImgPerc(Math.round(progress));
+				switch (snapshot.state) {
+					case "paused":
+						console.log("Upload is paused");
+						break;
+					case "running":
+						console.log("Upload is running");
+						break;
+					default:
+						break;
+				}
+			},
+			(error) => {},
+			() => {
+				getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+					setInputs((prev) => {
+						return { ...prev, [urlType]: downloadURL };
+					});
+				});
+			}
+		);
+	};
+
+	useEffect(() => {
+		img && uploadFile(img, "image");
+	}, [img]);
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -24,11 +66,12 @@ const UploadForm = ({ setOpen }) => {
 		});
 	};
 
-	const handleSubmit = async (e) => {
+	const handleSubmit = (e) => {
 		e.preventDefault();
-		dispatch(createPost(inputs));
-		console.log(inputs);
-		navigate("/");
+		dispatch(createPost(inputs)).then(() => {
+			console.log(inputs);
+			window.location.reload();
+		});
 	};
 
 	// Fetch category
@@ -60,7 +103,8 @@ const UploadForm = ({ setOpen }) => {
 						<label>Product brand</label>
 					</div>
 					<div className="input-group">
-						<input type="text" className="upload-image" name="image" onChange={handleChange} />
+						{imgPerc ? "Uploading: " + imgPerc + "%" : ""}
+						<input type="file" className="upload-image" id="fileInput" accept="image/*" onChange={(e) => setImg(e.target.files[0])} />
 						<label>Product image</label>
 					</div>
 					<div className="input-group">

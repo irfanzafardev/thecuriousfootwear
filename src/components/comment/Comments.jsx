@@ -15,15 +15,16 @@ const Comments = ({ user, postId }) => {
 	useEffect(() => {
 		const fetchComments = async () => {
 			const commentRes = await axios.get(rootAPI + `comment/getCommentsByPostId/${postId}`);
-			setComments(commentRes.data);
-			dispatch(getAllCommentByPostId(postId));
+			dispatch(getAllCommentByPostId(postId)).then(() => {
+				setComments(commentRes.data);
+			});
 		};
 		fetchComments();
 	}, [postId, dispatch]);
 	return (
 		<>
-			<CreateComment user={user} postId={postId} />
-			<AllComment postId={postId} comments={comments} />
+			<CreateComment user={user} postId={postId} setComments={setComments} />
+			<AllComment comments={comments} />
 		</>
 	);
 };
