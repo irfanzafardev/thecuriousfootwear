@@ -7,7 +7,7 @@ import "./explorepost.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllPost, reset } from "../../services/post/postSlice";
 
-const ExplorePost = () => {
+const FeaturedPost = () => {
 	const dispatch = useDispatch();
 	const { posts, isLoading, isError, message } = useSelector((state) => state.post);
 
@@ -96,4 +96,4 @@ const ExplorePost = () => {
 	);
 };
 
-export default ExplorePost;
+export default FeaturedPost;

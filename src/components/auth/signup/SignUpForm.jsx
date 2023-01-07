@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { register, reset } from "../../services/auth/authSlice";
-import Spinner from "../loading/Spinner";
+import { register, reset } from "../../../services/auth/authSlice";
+import Spinner from "../../loading/Spinner";
 
-import "./signup.css";
+import "./signupform.css";
 
-const SignupForm = () => {
+const SignUpForm = () => {
 	const [formData, setFormData] = useState({
 		first_name: "",
 		last_name: "",
@@ -136,4 +136,4 @@ const SignupForm = () => {
 	);
 };
 
-export default SignupForm;
+export default SignUpForm;

@@ -5,6 +5,7 @@ import "./categoryslider.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 const CategorySlider = () => {
 	const [categories, setCategories] = useState([]);
@@ -37,28 +38,6 @@ const CategorySlider = () => {
 	};
 	return (
 		<>
-			{/* <section className="category-slider">
-				<div className="row">
-					<div className="col-12 col-lg-6">
-						<div className="slider ">
-							<Slider {...settings}>
-								{categories.map((item) => (
-									<div className="item" key={item.categoryId}>
-										<Link to={`/category?cat=${item.name}`} className="link">
-											<div className="btn btn-outline-dark">{item.name}</div>
-										</Link>
-									</div>
-								))}
-							</Slider>
-						</div>
-					</div>
-					<div className="col-12 col-lg-6">
-						<div className="d-flex justify-content-center justify-content-lg-end">
-							<button className="btn btn-outline-dark">See all</button>
-						</div>
-					</div>
-				</div>
-			</section> */}
 			<section className="category-slider">
 				<div className="row">
 					<div className="col-12 col-lg-6">

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { login, reset } from "../../services/auth/authSlice";
-import Spinner from "../loading/Spinner";
-import "./login.css";
+import { login, reset } from "../../../services/auth/authSlice";
+import Spinner from "../../loading/Spinner";
+import "./signinform.css";
 
-const LoginForm = () => {
+const SignInForm = () => {
 	const [formData, setFormData] = useState({
 		username: "",
 		password: "",
@@ -96,4 +96,4 @@ const LoginForm = () => {
 	);
 };
 
-export default LoginForm;
+export default SignInForm;

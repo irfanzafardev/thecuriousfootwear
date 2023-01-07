@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const LoginNavbar = () => {
+const SignInNavbar = () => {
 	return (
 		<nav className="row align-items-center fixed-top">
 			<div className="container-fluid">
@@ -24,4 +24,4 @@ const LoginNavbar = () => {
 	);
 };
 
-export default LoginNavbar;
+export default SignInNavbar;

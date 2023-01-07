@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import Comments from "../comment/Comments";
+import Comments from "../feedback/Comments";
 import MiniSpinner from "../loading/MiniSpinner";
 import "./singlepost.css";
 

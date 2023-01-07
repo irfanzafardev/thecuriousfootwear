@@ -4,7 +4,7 @@ import { BiSearch } from "react-icons/bi";
 import { GoThreeBars } from "react-icons/go";
 import "./navbar.css";
 import { useSelector } from "react-redux";
-import UploadPostPage from "../../pages/post/UploadPostPage";
+import CreatePostForm from "../post/CreatePostForm";
 
 const Navbar = () => {
 	const { user } = useSelector((state) => state.auth);
@@ -135,7 +135,7 @@ const Navbar = () => {
 				</div>
 			</div>
 
-			{open && <UploadPostPage setOpen={setOpen} />}
+			{open && <CreatePostForm setOpen={setOpen} />}
 		</>
 	);
 };

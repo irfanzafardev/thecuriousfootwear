@@ -8,9 +8,9 @@ import { createPost } from "../../services/post/postSlice";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import app from "../../firebase";
 
-import "./uploadform.css";
+import "./createpostform.css";
 
-const UploadForm = ({ setOpen }) => {
+const CreatePostForm = ({ setOpen }) => {
 	const { user } = useSelector((state) => state.auth);
 	const rootAPI = "https://thecuriousfootwear-server.vercel.app/api";
 
@@ -159,4 +159,4 @@ const UploadForm = ({ setOpen }) => {
 	);
 };
 
-export default UploadForm;
+export default CreatePostForm;
