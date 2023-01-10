@@ -1,154 +1,154 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import postService from './postService'
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import postService from "./postService";
 
 const initialState = {
   posts: [],
   isError: false,
   isSuccess: false,
   isLoading: false,
-  message: ""
-}
+  message: "",
+};
 
 // Create new post
 export const createPost = createAsyncThunk(
-  'post/create',
+  "post/create",
   async (postData, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user.token
-      return await postService.createPost(postData, token)
+      const token = thunkAPI.getState().auth.user.token;
+      return await postService.createPost(postData, token);
     } catch (error) {
       const message =
         (error.response &&
           error.response.data &&
           error.response.data.message) ||
         error.message ||
-        error.toString()
-      return thunkAPI.rejectWithValue(message)
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
     }
   }
-)
+);
 
 // Fetch all post
 export const getAllPost = createAsyncThunk(
-  'post/getAll',
+  "post/getAll",
   async (_, thunkAPI) => {
     try {
-      return await postService.getAllPost()
+      return await postService.getAllPost();
     } catch (error) {
       const message =
         (error.response &&
           error.response.data &&
           error.response.data.message) ||
         error.message ||
-        error.toString()
-      return thunkAPI.rejectWithValue(message)
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
     }
   }
-)
+);
 
 // Fetch all post
 export const getCurrentPost = createAsyncThunk(
-  'post/getCurrent',
+  "post/getCurrent",
   async (postId, thunkAPI) => {
     try {
-      return await postService.getCurrentPost(postId)
+      return await postService.getCurrentPost(postId);
     } catch (error) {
       const message =
         (error.response &&
           error.response.data &&
           error.response.data.message) ||
         error.message ||
-        error.toString()
-      return thunkAPI.rejectWithValue(message)
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
     }
   }
-)
+);
 
 // Like post
 export const likePost = createAsyncThunk(
-  'post/like',
+  "post/like",
   async (postId, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user.token
-      return await postService.likePost(postId, token)
+      const token = thunkAPI.getState().auth.user.token;
+      return await postService.likePost(postId, token);
     } catch (error) {
       const message =
         (error.response &&
           error.response.data &&
           error.response.data.message) ||
         error.message ||
-        error.toString()
-      return thunkAPI.rejectWithValue(message)
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
     }
   }
-)
+);
 
 // Unlike post
 export const unlikePost = createAsyncThunk(
-  'post/unlike',
+  "post/unlike",
   async (postId, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user.token
-      return await postService.unlikePost(postId, token)
+      const token = thunkAPI.getState().auth.user.token;
+      return await postService.unlikePost(postId, token);
     } catch (error) {
       const message =
         (error.response &&
           error.response.data &&
           error.response.data.message) ||
         error.message ||
-        error.toString()
-      return thunkAPI.rejectWithValue(message)
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
     }
   }
-)
+);
 
 export const postSlice = createSlice({
-  name: 'post',
+  name: "post",
   initialState,
   reducers: {
-    reset: (state) => initialState
+    reset: (state) => initialState,
   },
   extraReducers: (builder) => {
     builder
       .addCase(createPost.pending, (state) => {
-        state.isLoading = true
+        state.isLoading = true;
       })
       .addCase(createPost.fulfilled, (state, action) => {
-        state.isLoading = false
-        state.isSuccess = true
-        state.posts.push(action.payload)
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.posts.push(action.payload);
       })
       .addCase(createPost.rejected, (state, action) => {
-        state.isLoading = false
-        state.isError = true
-        state.message = action.payload
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
       })
       .addCase(getAllPost.pending, (state) => {
-        state.isLoading = true
+        state.isLoading = true;
       })
       .addCase(getAllPost.fulfilled, (state, action) => {
-        state.isLoading = false
-        state.isSuccess = true
-        state.posts = action.payload
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.posts = action.payload;
       })
       .addCase(getAllPost.rejected, (state, action) => {
-        state.isLoading = false
-        state.isError = true
-        state.message = action.payload
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
       })
       .addCase(getCurrentPost.pending, (state) => {
-        state.isLoading = true
-        state.posts = []
+        state.isLoading = true;
+        state.posts = [];
       })
       .addCase(getCurrentPost.fulfilled, (state, action) => {
-        state.isLoading = false
-        state.isSuccess = true
-        state.posts = action.payload
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.posts = action.payload;
       })
       .addCase(getCurrentPost.rejected, (state, action) => {
-        state.isLoading = false
-        state.isError = true
-        state.message = action.payload
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload;
       })
       .addCase(likePost.fulfilled, (state, action) => {
         if (!state.posts.like.includes(action.payload)) {
@@ -165,15 +165,13 @@ export const postSlice = createSlice({
         if (!state.posts.dislike.includes(action.payload)) {
           state.posts.dislike.push(action.payload);
           state.posts.like.splice(
-            state.posts.like.findIndex(
-              (userId) => userId === action.payload
-            ),
+            state.posts.like.findIndex((userId) => userId === action.payload),
             1
           );
         }
-      })
-  }
-})
+      });
+  },
+});
 
-export const { reset } = postSlice.actions
-export default postSlice.reducer
+export const { reset } = postSlice.actions;
+export default postSlice.reducer;
